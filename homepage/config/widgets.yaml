@@ -1,0 +1,22 @@
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/service-widgets
+---
+- resources:
+    label: System
+    cpu: true
+    cputemp: true
+    tempmin: 0 # optional, minimum cpu temp
+    tempmax: 100 # optional, maximum cpu temp
+    uptime: true
+    memory: true
+    disk: /
+
+- search:
+    provider: google
+    target: _blank
+
+- datetime:
+    text_size: xl
+    format:
+      timeStyle: short
+      hourCycle: h23
