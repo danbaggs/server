@@ -1,0 +1,235 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    environment:
+      PUID: 1000
+      PGID: 1000
+    ports:
+      - 80:3000
+    volumes:
+      - /data/homepage/config:/app/config # Make sure your local config directory exists
+      - /data/homepage/images:/app/public/images
+      - /data/homepage/icons:/app/public/icons
+    restart: unless-stopped
+
+  # dashy:
+  #   image: lissy93/dashy
+  #   container_name: dashy
+  #   volumes:
+  #     - /data/dashy:/app/user-data
+  #   ports:
+  #     - 80:8080
+  #   restart: unless-stopped
+  #   # Configure healthchecks
+  #   healthcheck:
+  #     test: ["CMD", "node", "/app/services/healthcheck"]
+  #     interval: 1m30s
+  #     timeout: 10s
+  #     retries: 3
+  #     start_period: 40s
+
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp" # https://github.com/pi-hole/docker-pi-hole?tab=readme-ov-file#installing-on-ubuntu-or-fedora
+      - "8080:80/tcp"
+    environment:
+      WEBPASSWORD: $PIHOLE_WEBPASSWORD
+      DNSMASQ_LISTENING: "all"
+    volumes:
+      - "/data/pihole:/etc/pihole"
+      - "/data/pihole/dnsmasq.d:/etc/dnsmasq.d"
+    restart: unless-stopped
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    ports:
+      - 8000:8000
+      - 9443:9443
+    restart: unless-stopped
+    volumes:
+      - "/data/portainer:/data"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+  # uptime-kuma:
+  #   image: louislam/uptime-kuma:latest
+  #   container_name: uptime-kuma
+  #   volumes:
+  #     - /data/uptimekuma:/app/data
+  #   ports:
+  #     - 3001:3001
+  #   restart: unless-stopped
+  
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+  openvpn-client:
+    image: haugene/transmission-openvpn
+    container_name: transmission-openvpn
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - /data/transmission/config:/config/transmission-home
+      - /data/openvpn/config:/config/openvpn
+      - /media/server/transcend/torrents:/downloads
+    environment:
+      OPENVPN_PROVIDER: PRIVATEVPN
+      OPENVPN_USERNAME: $OPENVPN_USERNAME
+      OPENVPN_PASSWORD: $OPENVPN_PASSWORD
+      DISABLE_IPV6: true
+      TRANSMISSION_WEB_UI_PORT: 9091
+      LOCAL_NETWORK: 192.168.0.0/24
+      TRANSMISSION_DOWNLOAD_DIR: /downloads
+    sysctls:
+      - "net.ipv6.conf.all.disable_ipv6=0"  # This bypasses Docker weirdness with ipv6
+    ports:  # map all svc you wanna route through VPN
+      - 9091:9091 # Transmission Web UI
+      - 8191:8191 # Flaresolverr
+      - 9696:9696 # Prowlarr
+      - 8989:8989 # Sonarr
+      - 7878:7878 # Radarr
+    restart: unless-stopped
+    networks:
+      - vpn-network
+
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=Etc/UTC
+    ports:
+      - 5055:5055
+    volumes:
+      - /data/jellyseerr/config:/app/config
+    restart: unless-stopped
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    depends_on:
+      - openvpn-client
+    network_mode: "service:openvpn-client"
+    volumes:
+      - /data/prowlarr/config:/config
+    environment:
+      # - PUID=1005
+      # - PGID=1002
+      - TZ=Etc/UTC
+    restart: unless-stopped
+
+  flaresolverr:
+    image: flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    depends_on:
+      - openvpn-client
+    network_mode: "service:openvpn-client"
+    environment:
+      - LOG_LEVEL=debug
+    restart: unless-stopped
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    depends_on:
+      - openvpn-client
+    network_mode: "service:openvpn-client"
+    environment:
+      # - PUID=1000
+      # - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /data/sonarr/config:/config
+      - /media/server/transcend/tv:/tv
+      - /media/server/transcend/torrents:/downloads
+    restart: unless-stopped
+
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    depends_on:
+      - openvpn-client
+    network_mode: "service:openvpn-client"
+    environment:
+      # - PUID=1000
+      # - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /data/radarr/config:/config
+      - /media/server/transcend/movies:/movies
+      - /media/server/transcend/torrents:/downloads
+    restart: unless-stopped
+
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    # user: "1000:1000"
+    network_mode: "host"
+    volumes:
+      - /data/jellyfin/config:/config
+      - /data/jellyfin/cache:/cache
+      - type: bind
+        source: /media/server/transcend/movies
+        target: /movies
+      - type: bind
+        source: /media/server/transcend/tv
+        target: /tv
+    restart: "unless-stopped"
+    # # Optional - alternative address used for autodiscovery
+    # environment:
+    #   - JELLYFIN_PublishedServerUrl=http://192.168.0.27:8096
+    # # Optional - may be necessary for docker healthcheck to pass if running in host network mode
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # gitlab:
+  #   image: gitlab/gitlab-ce:latest
+  #   container_name: gitlab
+  #   restart: unless-stopped
+  #   hostname: "192.168.0.27"
+  #   environment:
+  #     GITLAB_OMNIBUS_CONFIG: |
+  #       external_url "http://192.168.0.27:8929"
+  #       gitlab_rails["gitlab_shell_ssh_port"] = 2424
+  #   ports:
+  #     - "8929:8929"
+  #     - "443:443"
+  #     - "2424:22"
+  #   volumes:
+  #     - "/data/gitlab/config:/etc/gitlab"
+  #     - "/data/gitlab/logs:/var/log/gitlab"
+  #     - "/data/gitlab/data:/var/opt/gitlab"
+  #     - "/data/gitlabrunner/config:/etc/gitlab-runner"
+  #   shm_size: "256m"
+  
+  # gitlab-runner:
+  #   image: gitlab/gitlab-runner:latest
+  #   container_name: gitlab-runner
+  #   network_mode: "host"
+  #   restart: unless-stopped
+  #   volumes:
+  #     - "/data/gitlabrunner/config:/etc/gitlab-runner"
+  #     - "/var/run/docker.sock:/var/run/docker.sock"
+  #   environment:
+  #     CI_SERVER_URL: http://192.168.0.27:8929/
+  #     REGISTRATION_TOKEN: $GITLAB_RUNNER_REGISTRATION_TOKEN # Replace with your GitLab Runner registration token
+
+
+networks:
+  vpn-network:
+    name: vpn-network 
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
