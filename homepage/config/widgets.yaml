@@ -2,21 +2,29 @@
 # https://gethomepage.dev/latest/configs/service-widgets
 ---
 - resources:
-    label: System
-    cpu: true
-    cputemp: true
-    tempmin: 0 # optional, minimum cpu temp
-    tempmax: 100 # optional, maximum cpu temp
-    uptime: true
-    memory: true
-    disk: /
+      label: System
+      cpu: true
+      cputemp: true
+      tempmin: 0 # optional, minimum cpu temp
+      tempmax: 100 # optional, maximum cpu temp
+      uptime: true
+      memory: true
+      disk: /
 
-- search:
-    provider: google
-    target: _blank
+- openmeteo:
+      latitude: 51.176082
+      longitude: -1.779152
+      units: metric # or imperial
+      cache: 5 # Time in minutes to cache API responses, to stay within limits
+      format: # optional, Intl.NumberFormat options
+          maximumFractionDigits: 1
+
+# - search:
+#       provider: google
+#       target: _blank
 
 - datetime:
-    text_size: xl
-    format:
-      timeStyle: short
-      hourCycle: h23
+      text_size: xl
+      format:
+          timeStyle: short
+          hourCycle: h23

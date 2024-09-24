@@ -17,7 +17,7 @@ services:
   #   image: lissy93/dashy
   #   container_name: dashy
   #   volumes:
-  #     - /data/dashy:/app/user-data
+  #     - ~/server/config/dashy:/app/user-data
   #   ports:
   #     - 80:8080
   #   restart: unless-stopped
@@ -28,6 +28,22 @@ services:
   #     timeout: 10s
   #     retries: 3
   #     start_period: 40s
+
+  calibre-web:
+    image: lscr.io/linuxserver/calibre-web:latest
+    container_name: calibre-web
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Etc/UTC
+      DOCKER_MODS: linuxserver/mods:universal-calibre # required for ebook conversion
+      OAUTHLIB_RELAX_TOKEN_SCOPE: 1 #optional
+    volumes:
+      - ~/server/config/calibre:/config
+      - /media/server/transcend/books:/books
+    ports:
+      - 8083:8083
+    restart: unless-stopped
 
   pihole:
     container_name: pihole
@@ -40,8 +56,8 @@ services:
       WEBPASSWORD: $PIHOLE_WEBPASSWORD
       DNSMASQ_LISTENING: "all"
     volumes:
-      - "/data/pihole:/etc/pihole"
-      - "/data/pihole/dnsmasq.d:/etc/dnsmasq.d"
+      - "~/server/config/pihole:/etc/pihole"
+      - "~/server/config/pihole/dnsmasq.d:/etc/dnsmasq.d"
     restart: unless-stopped
 
   portainer:
@@ -52,14 +68,14 @@ services:
       - 9443:9443
     restart: unless-stopped
     volumes:
-      - "/data/portainer:/data"
+      - "~/server/config/portainer:/data"
       - "/var/run/docker.sock:/var/run/docker.sock"
 
   # uptime-kuma:
   #   image: louislam/uptime-kuma:latest
   #   container_name: uptime-kuma
   #   volumes:
-  #     - /data/uptimekuma:/app/data
+  #     - ~/server/config/uptimekuma:/app/data
   #   ports:
   #     - 3001:3001
   #   restart: unless-stopped
@@ -79,8 +95,8 @@ services:
     devices:
       - /dev/net/tun
     volumes:
-      - /data/transmission/config:/config/transmission-home
-      - /data/openvpn/config:/config/openvpn
+      - ~/server/config/transmission/config:/config/transmission-home
+      - ~/server/config/openvpn/config:/config/openvpn
       - /media/server/transcend/torrents:/downloads
     environment:
       OPENVPN_PROVIDER: PRIVATEVPN
@@ -98,6 +114,8 @@ services:
       - 9696:9696 # Prowlarr
       - 8989:8989 # Sonarr
       - 7878:7878 # Radarr
+      - 6767:6767 # Bazarr
+      - 5055:5055 # Jellyseerr
     restart: unless-stopped
     networks:
       - vpn-network
@@ -105,13 +123,14 @@ services:
   jellyseerr:
     image: fallenbagel/jellyseerr:latest
     container_name: jellyseerr
+    depends_on:
+      - openvpn-client
+    network_mode: "service:openvpn-client"
     environment:
-      - LOG_LEVEL=debug
-      - TZ=Etc/UTC
-    ports:
-      - 5055:5055
+      LOG_LEVEL: debug
+      TZ: Etc/UTC
     volumes:
-      - /data/jellyseerr/config:/app/config
+      - ~/server/config/jellyseerr/config:/app/config
     restart: unless-stopped
 
   prowlarr:
@@ -121,11 +140,11 @@ services:
       - openvpn-client
     network_mode: "service:openvpn-client"
     volumes:
-      - /data/prowlarr/config:/config
+      - ~/server/config/prowlarr/config:/config
     environment:
-      # - PUID=1005
-      # - PGID=1002
-      - TZ=Etc/UTC
+      # PUID: 1005
+      # PGID: 1002
+      TZ: Etc/UTC
     restart: unless-stopped
 
   flaresolverr:
@@ -135,7 +154,7 @@ services:
       - openvpn-client
     network_mode: "service:openvpn-client"
     environment:
-      - LOG_LEVEL=debug
+      LOG_LEVEL: debug
     restart: unless-stopped
 
   sonarr:
@@ -145,11 +164,11 @@ services:
       - openvpn-client
     network_mode: "service:openvpn-client"
     environment:
-      # - PUID=1000
-      # - PGID=1000
-      - TZ=Etc/UTC
+      # PUID: 1000
+      # PGID: 1000
+      TZ: Etc/UTC
     volumes:
-      - /data/sonarr/config:/config
+      - ~/server/config/sonarr/config:/config
       - /media/server/transcend/tv:/tv
       - /media/server/transcend/torrents:/downloads
     restart: unless-stopped
@@ -162,13 +181,29 @@ services:
       - openvpn-client
     network_mode: "service:openvpn-client"
     environment:
-      # - PUID=1000
-      # - PGID=1000
-      - TZ=Etc/UTC
+      # PUID: 1000
+      # PGID: 1000
+      TZ: Etc/UTC
     volumes:
-      - /data/radarr/config:/config
+      - ~/server/config/radarr/config:/config
       - /media/server/transcend/movies:/movies
       - /media/server/transcend/torrents:/downloads
+    restart: unless-stopped
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    depends_on:
+      - openvpn-client
+    network_mode: "service:openvpn-client"
+    environment:
+      # PUID: 1000
+      # PGID: 1000
+      TZ: Etc/UTC
+    volumes:
+      - ~/server/config/bazarr/config:/config
+      - /media/server/transcend/movies:/movies
+      - /media/server/transcend/tv:/tv
     restart: unless-stopped
 
   jellyfin:
@@ -177,8 +212,8 @@ services:
     # user: "1000:1000"
     network_mode: "host"
     volumes:
-      - /data/jellyfin/config:/config
-      - /data/jellyfin/cache:/cache
+      - ~/server/config/jellyfin/config:/config
+      - ~/server/config/jellyfin/cache:/cache
       - type: bind
         source: /media/server/transcend/movies
         target: /movies
@@ -207,10 +242,10 @@ services:
   #     - "443:443"
   #     - "2424:22"
   #   volumes:
-  #     - "/data/gitlab/config:/etc/gitlab"
-  #     - "/data/gitlab/logs:/var/log/gitlab"
-  #     - "/data/gitlab/data:/var/opt/gitlab"
-  #     - "/data/gitlabrunner/config:/etc/gitlab-runner"
+  #     - "~/server/config/gitlab/config:/etc/gitlab"
+  #     - "~/server/config/gitlab/logs:/var/log/gitlab"
+  #     - "~/server/config/gitlab/data:/var/opt/gitlab"
+  #     - "~/server/config/gitlabrunner/config:/etc/gitlab-runner"
   #   shm_size: "256m"
   
   # gitlab-runner:
@@ -219,7 +254,7 @@ services:
   #   network_mode: "host"
   #   restart: unless-stopped
   #   volumes:
-  #     - "/data/gitlabrunner/config:/etc/gitlab-runner"
+  #     - "~/server/config/gitlabrunner/config:/etc/gitlab-runner"
   #     - "/var/run/docker.sock:/var/run/docker.sock"
   #   environment:
   #     CI_SERVER_URL: http://192.168.0.27:8929/

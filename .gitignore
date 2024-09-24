@@ -1,3 +1,4 @@
 .env
 docker-compose.sam.yaml
 homepage/config/logs
+config/
