@@ -1,0 +1,99 @@
+services:
+
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    depends_on:
+      - openvpn-client
+    network_mode: "service:openvpn-client"
+    environment:
+      LOG_LEVEL: debug
+      TZ: Etc/UTC
+    volumes:
+      - ~/server/config/jellyseerr/config:/app/config
+    restart: unless-stopped
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    depends_on:
+      - openvpn-client
+    network_mode: "service:openvpn-client"
+    volumes:
+      - ~/server/config/prowlarr/config:/config
+    environment:
+      # PUID: 1005
+      # PGID: 1002
+      TZ: Etc/UTC
+    restart: unless-stopped
+
+  flaresolverr:
+    image: flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    depends_on:
+      - openvpn-client
+    network_mode: "service:openvpn-client"
+    environment:
+      LOG_LEVEL: debug
+    restart: unless-stopped
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    depends_on:
+      - openvpn-client
+    network_mode: "service:openvpn-client"
+    environment:
+      # PUID: 1000
+      # PGID: 1000
+      TZ: Etc/UTC
+    volumes:
+      - ~/server/config/sonarr/config:/config
+      - /media/server/transcend:/transcend
+    restart: unless-stopped
+
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    depends_on:
+      - openvpn-client
+    network_mode: "service:openvpn-client"
+    environment:
+      # PUID: 1000
+      # PGID: 1000
+      TZ: Etc/UTC
+    volumes:
+      - ~/server/config/radarr/config:/config
+      - /media/server/transcend:/transcend
+    restart: unless-stopped
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    depends_on:
+      - openvpn-client
+    network_mode: "service:openvpn-client"
+    environment:
+      # PUID: 1000
+      # PGID: 1000
+      TZ: Etc/UTC
+    volumes:
+      - ~/server/config/bazarr/config:/config
+      - /media/server/transcend:/transcend
+    restart: unless-stopped
+
+  readarr-ebooks:
+    image: lscr.io/linuxserver/readarr:develop
+    container_name: readarr-ebooks
+    depends_on:
+      - openvpn-client
+    network_mode: "service:openvpn-client"
+    environment:
+      # - PUID=1000
+      # - PGID=1000
+      TZ: Etc/UTC
+    volumes:
+      - ~/server/config/readarr-ebooks/config:/config
+      - /media/server/transcend:/transcend #optional
+    restart: unless-stopped

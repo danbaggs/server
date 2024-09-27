@@ -1,0 +1,41 @@
+services:
+  calibre-web:
+    image: lscr.io/linuxserver/calibre-web:latest
+    container_name: calibre-web
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Etc/UTC
+      DOCKER_MODS: linuxserver/mods:universal-calibre # required for ebook conversion
+      OAUTHLIB_RELAX_TOKEN_SCOPE: 1 #optional
+    volumes:
+      - ~/server/config/calibre:/config
+      - /media/server/transcend/media/books:/books
+    ports:
+      - 8083:8083
+    restart: unless-stopped
+    networks:
+      - shared-network
+
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    # user: "1000:1000"
+    # network_mode: "host"
+    ports:
+      - 8096:8096
+    volumes:
+      - ~/server/config/jellyfin/config:/config
+      - ~/server/config/jellyfin/cache:/cache
+      - type: bind
+        source: /media/server/transcend/media
+        target: /transcend/media
+    restart: "unless-stopped"
+    # # Optional - alternative address used for autodiscovery
+    # environment:
+    #   - JELLYFIN_PublishedServerUrl=http://192.168.0.27:8096
+    # # Optional - may be necessary for docker healthcheck to pass if running in host network mode
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - shared-network

@@ -1,0 +1,36 @@
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    container_name: gitlab
+    restart: unless-stopped
+    hostname: "192.168.0.27"
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url "http://192.168.0.27:8929"
+        gitlab_rails["gitlab_shell_ssh_port"] = 2424
+    ports:
+      - "8929:8929"
+      - "443:443"
+      - "2424:22"
+    volumes:
+      - "~/server/config/gitlab/config:/etc/gitlab"
+      - "~/server/config/gitlab/logs:/var/log/gitlab"
+      - "~/server/config/gitlab/data:/var/opt/gitlab"
+      - "~/server/config/gitlabrunner/config:/etc/gitlab-runner"
+    shm_size: "256m"
+    networks:
+      - shared-network
+  
+  gitlab-runner:
+    image: gitlab/gitlab-runner:latest
+    container_name: gitlab-runner
+    network_mode: "host"
+    restart: unless-stopped
+    volumes:
+      - "~/server/config/gitlabrunner/config:/etc/gitlab-runner"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    environment:
+      CI_SERVER_URL: http://192.168.0.27:8929/
+      REGISTRATION_TOKEN: $GITLAB_RUNNER_REGISTRATION_TOKEN # Replace with your GitLab Runner registration token
+    # networks:
+    #   - shared-network
