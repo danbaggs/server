@@ -59,7 +59,7 @@ services:
       - shared-network
 
 
-# uptime-kuma:
+  # uptime-kuma:
   #   image: louislam/uptime-kuma:latest
   #   container_name: uptime-kuma
   #   volumes:
@@ -67,5 +67,5 @@ services:
   #   ports:
   #     - 3001:3001
   #   restart: unless-stopped
-  # networks:
+  #   networks:
   #     - shared-network

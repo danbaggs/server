@@ -13,3 +13,13 @@ background:
   opacity: 50 # 0-100
 
 showStats: true
+theme: dark
+color: slate
+
+layout:
+  Media Server:
+    icon: jellyfin.png
+  Servarr:
+    icon: servarr.png
+  Tools:
+    icon: mealie.png
