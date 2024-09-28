@@ -3,7 +3,7 @@ include:
   - compose-files/openvpn-transmission/compose.yaml
   - compose-files/servarr/compose.yaml
   - compose-files/media/compose.yaml
-  - compose-files/gitlab/compose.yaml
+  # - compose-files/gitlab/compose.yaml
 
 services:
   homepage:

@@ -52,7 +52,6 @@ services:
       - /media/server/transcend:/transcend
     restart: unless-stopped
 
-
   radarr:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
