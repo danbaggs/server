@@ -126,3 +126,13 @@
           url: https://portainer:9443
           env: 2
           key: ptr_RRcdkzHTEN7sD7WZnsRCCrmRwiddl9EB1YOLETM165A=
+    # - Uptime Kuma:
+    #     icon: uptimekuma.png
+    #     description: "Uptime Monitor"
+    #     href: http://192.168.0.27:3001/
+    #     server: dockerproxy
+    #     container: uptime-kuma
+    #     widget:
+    #       type: uptimekuma
+    #       url: http://uptime-kuma:3001
+    #       slug: slughere
