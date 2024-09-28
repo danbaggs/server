@@ -82,17 +82,17 @@ services:
       - /media/server/transcend:/transcend
     restart: unless-stopped
 
-  readarr-ebooks:
-    image: lscr.io/linuxserver/readarr:develop
-    container_name: readarr-ebooks
-    depends_on:
-      - openvpn-client
-    network_mode: "service:openvpn-client"
-    environment:
-      # - PUID=1000
-      # - PGID=1000
-      TZ: Etc/UTC
-    volumes:
-      - ~/server/config/readarr-ebooks/config:/config
-      - /media/server/transcend:/transcend #optional
-    restart: unless-stopped
+  # readarr-ebooks:
+  #   image: lscr.io/linuxserver/readarr:develop
+  #   container_name: readarr-ebooks
+  #   depends_on:
+  #     - openvpn-client
+  #   network_mode: "service:openvpn-client"
+  #   environment:
+  #     # - PUID=1000
+  #     # - PGID=1000
+  #     TZ: Etc/UTC
+  #   volumes:
+  #     - ~/server/config/readarr-ebooks/config:/config
+  #     - /media/server/transcend:/transcend #optional
+  #   restart: unless-stopped

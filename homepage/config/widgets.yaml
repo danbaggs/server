@@ -7,7 +7,7 @@
     cputemp: true
     tempmin: 0 # optional, minimum cpu temp
     tempmax: 100 # optional, maximum cpu temp
-    uptime: true
+    # uptime: true
     memory: true
     disk: /
 

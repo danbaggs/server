@@ -18,8 +18,15 @@ color: slate
 
 layout:
   Media Server:
+    useEqualHeights: true
+    style: row
+    columns: 3
     icon: jellyfin.png
   Servarr:
+    style: row
+    columns: 4
     icon: servarr.png
   Tools:
+    style: row
+    columns: 2
     icon: mealie.png

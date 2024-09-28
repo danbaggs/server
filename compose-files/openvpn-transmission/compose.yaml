@@ -9,7 +9,7 @@ services:
     volumes:
       - ~/server/config/transmission/config:/config/transmission-home
       - ~/server/config/openvpn/config:/config/openvpn
-      - /media/server/transcend/torrents:/transcend/torrents
+      - /media/server/transcend:/transcend
     environment:
       OPENVPN_PROVIDER: PRIVATEVPN
       OPENVPN_USERNAME: $OPENVPN_USERNAME
@@ -28,7 +28,7 @@ services:
       - 7878:7878 # Radarr
       - 6767:6767 # Bazarr
       - 5055:5055 # Jellyseerr
-      - 8787:8787 # Readarr EBOOKS
+      # - 8787:8787 # Readarr EBOOKS
     restart: unless-stopped
     networks:
       - vpn-network

@@ -3,6 +3,16 @@
 # https://gethomepage.dev/latest/configs/services
 
 - Media Server:
+    - Jellyseerr:
+        icon: jellyseerr.png
+        description: "Media search"
+        href: http://192.168.0.27:5055
+        server: dockerproxy
+        container: jellyseerr
+        widget:
+          type: jellyseerr
+          url: http://transmission-openvpn:5055
+          key: {{HOMEPAGE_VAR_JELLYSEERR_API_KEY}}
     - Jellyfin:
         icon: jellyfin.png
         description: "Media server"
@@ -18,16 +28,6 @@
           # enableUser: true # optional, defaults to false
           showEpisodeNumber: true # optional, defaults to false
           expandOneStreamToTwoRows: false # optional, defaults to true
-    - Jellyseerr:
-        icon: jellyseerr.png
-        description: "Media search"
-        href: http://192.168.0.27:5055
-        server: dockerproxy
-        container: jellyseerr
-        widget:
-          type: jellyseerr
-          url: http://transmission-openvpn:5055
-          key: {{HOMEPAGE_VAR_JELLYSEERR_API_KEY}}
     - Calibre:
         icon: calibre.png
         description: "ebooks library"
@@ -41,18 +41,6 @@
           password: {{HOMEPAGE_VAR_CALIBRE_PASSWORD}}
 
 - Servarr:
-    - Transmission:
-        icon: transmission.png
-        description: "Torrent Download Client"
-        href: http://192.168.0.27:9091
-        server: dockerproxy
-        container: transmission-openvpn
-        widget:
-          type: transmission
-          url: http://transmission-openvpn:9091
-          username: ""
-          password: ""
-          rpcUrl: "/transmission/"
     - Sonarr:
         icon: sonarr.png
         description: "TV shows"
@@ -73,17 +61,28 @@
           type: radarr
           url: http://transmission-openvpn:7878
           key: {{HOMEPAGE_VAR_RADARR_API_KEY}}
-    - Readarr eBooks:
-        icon: readarr.png
-        description: "Torrent Indexer"
-        href: http://192.168.0.27:8787/
+    # - Readarr eBooks:
+    #     icon: readarr.png
+    #     description: "Torrent Indexer"
+    #     href: http://192.168.0.27:8787/
+    #     server: dockerproxy
+    #     container: readarr-ebooks
+    #     widget:
+    #       type: readarr
+    #       url: http://transmission-openvpn:8787
+    #       key: {{HOMEPAGE_VAR_READARR_API_KEY}}
+    - Transmission:
+        icon: transmission.png
+        description: "Torrent Download Client"
+        href: http://192.168.0.27:9091
         server: dockerproxy
-        container: readarr-ebooks
+        container: transmission-openvpn
         widget:
-          type: readarr
-          url: http://transmission-openvpn:8787
-          key: {{HOMEPAGE_VAR_READARR_API_KEY}}
-          widget:
+          type: transmission
+          url: http://transmission-openvpn:9091
+          username: ""
+          password: ""
+          rpcUrl: "/transmission/"
     - Bazarr:
         icon: bazarr.png
         description: "Subtitles"
@@ -96,16 +95,16 @@
           key: {{HOMEPAGE_VAR_BAZARR_API_KEY}}
 
 - Tools:
-    - Gitlab:
-        icon: gitlab.png
-        description: "Gitlab"
-        href: http://192.168.0.27:8929
-        server: dockerproxy
-        container: gitlab
-    - Gitlab Runner:
-        icon: gitlab.png
-        server: dockerproxy
-        container: gitlab-runner
+    # - Gitlab:
+    #     icon: gitlab.png
+    #     description: "Gitlab"
+    #     href: http://192.168.0.27:8929
+    #     server: dockerproxy
+    #     container: gitlab
+    # - Gitlab Runner:
+    #     icon: gitlab.png
+    #     server: dockerproxy
+    #     container: gitlab-runner
     - Prowlarr:
         icon: prowlarr.png
         description: "Torrent Indexer"
