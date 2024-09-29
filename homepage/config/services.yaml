@@ -43,7 +43,7 @@
 - Servarr:
     - Sonarr:
         icon: sonarr.png
-        description: "TV shows"
+        description: "TV Shows Management"
         href: http://192.168.0.27:8989
         server: dockerproxy
         container: sonarr
@@ -53,7 +53,7 @@
           key: {{HOMEPAGE_VAR_SONARR_API_KEY}}
     - Radarr:
         icon: radarr.png
-        description: "Movies"
+        description: "Movies Management"
         href: http://192.168.0.27:7878/
         server: dockerproxy
         container: radarr
@@ -85,7 +85,7 @@
           rpcUrl: "/transmission/"
     - Bazarr:
         icon: bazarr.png
-        description: "Subtitles"
+        description: "Subtitles Management"
         href: http://192.168.0.27:6767/
         server: dockerproxy
         container: bazarr
@@ -97,17 +97,18 @@
 - Tools:
     # - Gitlab:
     #     icon: gitlab.png
-    #     description: "Gitlab"
+    #     description: "Self-hosted Gitlab"
     #     href: http://192.168.0.27:8929
     #     server: dockerproxy
     #     container: gitlab
     # - Gitlab Runner:
+    #     description: "Self-hosted Gitlab CI/CD Runner"
     #     icon: gitlab.png
     #     server: dockerproxy
     #     container: gitlab-runner
     - Prowlarr:
         icon: prowlarr.png
-        description: "Torrent Indexer"
+        description: "Torrent Indexer Service"
         href: http://192.168.0.27:9696/
         server: dockerproxy
         container: prowlarr
@@ -117,7 +118,7 @@
           key: {{HOMEPAGE_VAR_PROWLARR_API_KEY}}
     - Portainer:
         icon: portainer.png
-        description: "Docker Management"
+        description: "Docker Management UI"
         href: https://192.168.0.27:9443
         server: dockerproxy
         container: portainer
