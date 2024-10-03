@@ -10,7 +10,7 @@ services:
       OAUTHLIB_RELAX_TOKEN_SCOPE: 1 #optional
     volumes:
       - ~/server/config/calibre:/config
-      - /media/server/transcend/media/books:/books
+      - /data/media/books:/books
     ports:
       - 8083:8083
     restart: unless-stopped
@@ -28,7 +28,7 @@ services:
       - ~/server/config/jellyfin/config:/config
       - ~/server/config/jellyfin/cache:/cache
       - type: bind
-        source: /media/server/transcend/media
+        source: /data/media
         target: /transcend/media
     restart: "unless-stopped"
     # # Optional - alternative address used for autodiscovery

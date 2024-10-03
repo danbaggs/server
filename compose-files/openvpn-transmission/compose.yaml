@@ -9,7 +9,7 @@ services:
     volumes:
       - ~/server/config/transmission/config:/config/transmission-home
       - ~/server/config/openvpn/config:/config/openvpn
-      - /media/server/transcend:/transcend
+      - /data:/transcend
     environment:
       OPENVPN_PROVIDER: PRIVATEVPN
       OPENVPN_USERNAME: $OPENVPN_USERNAME

@@ -49,7 +49,7 @@ services:
       TZ: Etc/UTC
     volumes:
       - ~/server/config/sonarr/config:/config
-      - /media/server/transcend:/transcend
+      - /data:/transcend
     restart: unless-stopped
 
   radarr:
@@ -64,7 +64,7 @@ services:
       TZ: Etc/UTC
     volumes:
       - ~/server/config/radarr/config:/config
-      - /media/server/transcend:/transcend
+      - /data:/transcend
     restart: unless-stopped
 
   bazarr:
@@ -79,7 +79,7 @@ services:
       TZ: Etc/UTC
     volumes:
       - ~/server/config/bazarr/config:/config
-      - /media/server/transcend:/transcend
+      - /data:/transcend
     restart: unless-stopped
 
   # readarr-ebooks:
@@ -94,5 +94,5 @@ services:
   #     TZ: Etc/UTC
   #   volumes:
   #     - ~/server/config/readarr-ebooks/config:/config
-  #     - /media/server/transcend:/transcend #optional
+  #     - /data:/transcend #optional
   #   restart: unless-stopped
