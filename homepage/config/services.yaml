@@ -28,6 +28,18 @@
           # enableUser: true # optional, defaults to false
           showEpisodeNumber: true # optional, defaults to false
           expandOneStreamToTwoRows: false # optional, defaults to true
+    - Transmission:
+        icon: transmission.png
+        description: "Torrent Download Client"
+        href: http://192.168.0.27:9091
+        server: dockerproxy
+        container: transmission-openvpn
+        widget:
+          type: transmission
+          url: http://transmission-openvpn:9091
+          username: ""
+          password: ""
+          rpcUrl: "/transmission/"
     - Calibre:
         icon: calibre.png
         description: "ebooks library"
@@ -71,18 +83,16 @@
     #       type: readarr
     #       url: http://transmission-openvpn:8787
     #       key: {{HOMEPAGE_VAR_READARR_API_KEY}}
-    - Transmission:
-        icon: transmission.png
-        description: "Torrent Download Client"
-        href: http://192.168.0.27:9091
+    - Prowlarr:
+        icon: prowlarr.png
+        description: "Torrent Indexer Service"
+        href: http://192.168.0.27:9696/
         server: dockerproxy
-        container: transmission-openvpn
+        container: prowlarr
         widget:
-          type: transmission
-          url: http://transmission-openvpn:9091
-          username: ""
-          password: ""
-          rpcUrl: "/transmission/"
+          type: prowlarr
+          url: http://transmission-openvpn:9696
+          key: {{HOMEPAGE_VAR_PROWLARR_API_KEY}}
     - Bazarr:
         icon: bazarr.png
         description: "Subtitles Management"
@@ -106,16 +116,6 @@
     #     icon: gitlab.png
     #     server: dockerproxy
     #     container: gitlab-runner
-    - Prowlarr:
-        icon: prowlarr.png
-        description: "Torrent Indexer Service"
-        href: http://192.168.0.27:9696/
-        server: dockerproxy
-        container: prowlarr
-        widget:
-          type: prowlarr
-          url: http://transmission-openvpn:9696
-          key: {{HOMEPAGE_VAR_PROWLARR_API_KEY}}
     - Portainer:
         icon: portainer.png
         description: "Docker Management UI"
@@ -137,3 +137,9 @@
     #       type: uptimekuma
     #       url: http://uptime-kuma:3001
     #       slug: slughere
+    - Jellystat:
+        icon: jellystat.png
+        description: "Jellyfin Statistics"
+        href: http://192.168.0.27:3000/
+        server: dockerproxy
+        container: jellystat
