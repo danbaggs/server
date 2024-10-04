@@ -39,3 +39,29 @@ services:
       - "host.docker.internal:host-gateway"
     networks:
       - shared-network
+
+  jellystat-db:
+    image: postgres:15.2
+    environment:
+      POSTGRES_DB: 'jfstat'
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mypassword
+    volumes:
+    - ~/server/config/postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  jellystat:
+    image: cyfershepard/jellystat:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_IP: jellystat-db
+      POSTGRES_PORT: 5432
+      JWT_SECRET: 'my-secret-jwt-key'
+    ports:
+      - "3000:3000" #Server Port
+    volumes:
+      - ~/server/config/jellystat:/app/backend/backup-data
+    depends_on:
+      - jellystat-db
+    restart: unless-stopped
