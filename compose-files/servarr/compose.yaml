@@ -7,6 +7,8 @@ services:
       - openvpn-client
     network_mode: "service:openvpn-client"
     environment:
+      PUID: 1000
+      PGID: 1000
       LOG_LEVEL: debug
       TZ: Etc/UTC
     volumes:
@@ -22,8 +24,8 @@ services:
     volumes:
       - ~/server/config/prowlarr/config:/config
     environment:
-      # PUID: 1005
-      # PGID: 1002
+      PUID: 1000
+      PGID: 1000
       TZ: Etc/UTC
     restart: unless-stopped
 
@@ -34,6 +36,8 @@ services:
       - openvpn-client
     network_mode: "service:openvpn-client"
     environment:
+      PUID: 1000
+      PGID: 1000
       LOG_LEVEL: debug
     restart: unless-stopped
 
@@ -44,8 +48,8 @@ services:
       - openvpn-client
     network_mode: "service:openvpn-client"
     environment:
-      # PUID: 1000
-      # PGID: 1000
+      PUID: 1000
+      PGID: 1000
       TZ: Etc/UTC
     volumes:
       - ~/server/config/sonarr/config:/config
@@ -59,8 +63,8 @@ services:
       - openvpn-client
     network_mode: "service:openvpn-client"
     environment:
-      # PUID: 1000
-      # PGID: 1000
+      PUID: 1000
+      PGID: 1000
       TZ: Etc/UTC
     volumes:
       - ~/server/config/radarr/config:/config
@@ -74,8 +78,8 @@ services:
       - openvpn-client
     network_mode: "service:openvpn-client"
     environment:
-      # PUID: 1000
-      # PGID: 1000
+      PUID: 1000
+      PGID: 1000
       TZ: Etc/UTC
     volumes:
       - ~/server/config/bazarr/config:/config
@@ -89,8 +93,8 @@ services:
   #     - openvpn-client
   #   network_mode: "service:openvpn-client"
   #   environment:
-  #     # - PUID=1000
-  #     # - PGID=1000
+  #     - PUID=1000
+  #     - PGID=1000
   #     TZ: Etc/UTC
   #   volumes:
   #     - ~/server/config/readarr-ebooks/config:/config

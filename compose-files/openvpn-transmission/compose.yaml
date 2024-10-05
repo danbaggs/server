@@ -11,6 +11,8 @@ services:
       - ~/server/config/openvpn/config:/config/openvpn
       - /data:/transcend
     environment:
+      PUID: 1000
+      PGID: 1000
       OPENVPN_PROVIDER: PRIVATEVPN
       OPENVPN_USERNAME: $OPENVPN_USERNAME
       OPENVPN_PASSWORD: $OPENVPN_PASSWORD
