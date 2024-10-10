@@ -3,10 +3,10 @@ services:
     image: gitlab/gitlab-ce:latest
     container_name: gitlab
     restart: unless-stopped
-    hostname: "192.168.0.27"
+    hostname: "192.168.0.32"
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url "http://192.168.0.27:8929"
+        external_url "http://192.168.0.32:8929"
         gitlab_rails["gitlab_shell_ssh_port"] = 2424
     ports:
       - "8929:8929"
@@ -30,7 +30,7 @@ services:
       - "~/server/config/gitlabrunner/config:/etc/gitlab-runner"
       - "/var/run/docker.sock:/var/run/docker.sock"
     environment:
-      CI_SERVER_URL: http://192.168.0.27:8929/
+      CI_SERVER_URL: http://192.168.0.32:8929/
       REGISTRATION_TOKEN: $GITLAB_RUNNER_REGISTRATION_TOKEN # Replace with your GitLab Runner registration token
     # networks:
     #   - shared-network
