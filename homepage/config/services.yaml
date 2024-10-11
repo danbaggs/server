@@ -6,7 +6,7 @@
     - Jellyseerr:
         icon: jellyseerr.png
         description: "Media search"
-        href: http://192.168.0.32:5055
+        href: http://asus:5055
         server: dockerproxy
         container: jellyseerr
         widget:
@@ -16,7 +16,7 @@
     - Jellyfin:
         icon: jellyfin.png
         description: "Media server"
-        href: http://192.168.0.32:8096/
+        href: http://asus:8096/
         server: dockerproxy
         container: jellyfin
         widget:
@@ -31,7 +31,7 @@
     - Transmission:
         icon: transmission.png
         description: "Torrent Download Client"
-        href: http://192.168.0.32:9091
+        href: http://asus:9091
         server: dockerproxy
         container: transmission-openvpn
         widget:
@@ -43,7 +43,7 @@
     - Calibre:
         icon: calibre.png
         description: "ebooks library"
-        href: http://192.168.0.32:8083/
+        href: http://asus:8083/
         server: dockerproxy
         container: calibre-web
         widget:
@@ -56,7 +56,7 @@
     - Sonarr:
         icon: sonarr.png
         description: "TV Shows Management"
-        href: http://192.168.0.32:8989
+        href: http://asus:8989
         server: dockerproxy
         container: sonarr
         widget:
@@ -66,7 +66,7 @@
     - Radarr:
         icon: radarr.png
         description: "Movies Management"
-        href: http://192.168.0.32:7878/
+        href: http://asus:7878/
         server: dockerproxy
         container: radarr
         widget:
@@ -76,7 +76,7 @@
     # - Readarr eBooks:
     #     icon: readarr.png
     #     description: "Torrent Indexer"
-    #     href: http://192.168.0.32:8787/
+    #     href: http://asus:8787/
     #     server: dockerproxy
     #     container: readarr-ebooks
     #     widget:
@@ -86,7 +86,7 @@
     - Prowlarr:
         icon: prowlarr.png
         description: "Torrent Indexer Service"
-        href: http://192.168.0.32:9696/
+        href: http://asus:9696/
         server: dockerproxy
         container: prowlarr
         widget:
@@ -96,7 +96,7 @@
     - Bazarr:
         icon: bazarr.png
         description: "Subtitles Management"
-        href: http://192.168.0.32:6767/
+        href: http://asus:6767/
         server: dockerproxy
         container: bazarr
         widget:
@@ -108,7 +108,7 @@
     # - Gitlab:
     #     icon: gitlab.png
     #     description: "Self-hosted Gitlab"
-    #     href: http://192.168.0.32:8929
+    #     href: http://asus:8929
     #     server: dockerproxy
     #     container: gitlab
     # - Gitlab Runner:
@@ -119,7 +119,7 @@
     - Portainer:
         icon: portainer.png
         description: "Docker Management UI"
-        href: https://192.168.0.32:9443
+        href: https://asus:9443
         server: dockerproxy
         container: portainer
         widget:
@@ -130,7 +130,7 @@
     # - Uptime Kuma:
     #     icon: uptimekuma.png
     #     description: "Uptime Monitor"
-    #     href: http://192.168.0.32:3001/
+    #     href: http://asus:3001/
     #     server: dockerproxy
     #     container: uptime-kuma
     #     widget:
@@ -140,6 +140,6 @@
     - Jellystat:
         icon: jellystat.png
         description: "Jellyfin Statistics"
-        href: http://192.168.0.32:3000/
+        href: http://asus:3000/
         server: dockerproxy
         container: jellystat
