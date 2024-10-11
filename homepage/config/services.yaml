@@ -116,6 +116,12 @@
     #     icon: gitlab.png
     #     server: dockerproxy
     #     container: gitlab-runner
+    - Stirling PDF:
+        icon: stirling-pdf.png
+        description: "PDF Tools"
+        href: http://asus:8080/
+        server: dockerproxy
+        container: stirling-pdf
     - Portainer:
         icon: portainer.png
         description: "Docker Management UI"
@@ -127,16 +133,6 @@
           url: https://portainer:9443
           env: 2
           key: ptr_RRcdkzHTEN7sD7WZnsRCCrmRwiddl9EB1YOLETM165A=
-    # - Uptime Kuma:
-    #     icon: uptimekuma.png
-    #     description: "Uptime Monitor"
-    #     href: http://asus:3001/
-    #     server: dockerproxy
-    #     container: uptime-kuma
-    #     widget:
-    #       type: uptimekuma
-    #       url: http://uptime-kuma:3001
-    #       slug: slughere
     - Jellystat:
         icon: jellystat.png
         description: "Jellyfin Statistics"

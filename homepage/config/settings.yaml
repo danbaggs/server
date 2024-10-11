@@ -28,5 +28,5 @@ layout:
     icon: servarr.png
   Tools:
     style: row
-    columns: 2
+    columns: 3
     icon: mealie.png

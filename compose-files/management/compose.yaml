@@ -1,41 +1,5 @@
 services:
 
-
-  # dashy:
-  #   image: lissy93/dashy
-  #   container_name: dashy
-  #   volumes:
-  #     - ~/server/config/dashy:/app/user-data
-  #   ports:
-  #     - 80:8080
-  #   restart: unless-stopped
-  #   # Configure healthchecks
-  #   healthcheck:
-  #     test: ["CMD", "node", "/app/services/healthcheck"]
-  #     interval: 1m30s
-  #     timeout: 10s
-  #     retries: 3
-  #     start_period: 40s
-  # networks:
-  #     - shared-network
-
-  # pihole:
-  #   container_name: pihole
-  #   image: pihole/pihole:latest
-  #   ports:
-  #     - "53:53/tcp"
-  #     - "53:53/udp" # https://github.com/pi-hole/docker-pi-hole?tab=readme-ov-file#installing-on-ubuntu-or-fedora
-  #     - "8080:80/tcp"
-  #   environment:
-  #     WEBPASSWORD: $PIHOLE_WEBPASSWORD
-  #     DNSMASQ_LISTENING: "all"
-  #   volumes:
-  #     - "~/server/config/pihole:/etc/pihole"
-  #     - "~/server/config/pihole/dnsmasq.d:/etc/dnsmasq.d"
-  #   restart: unless-stopped
-  #   networks:
-  #     - shared-network
-
   portainer:
     image: portainer/portainer-ce:latest
     container_name: portainer
@@ -58,15 +22,3 @@ services:
     networks:
       - shared-network
       - vpn-network
-
-
-  # uptime-kuma:
-  #   image: louislam/uptime-kuma:latest
-  #   container_name: uptime-kuma
-  #   volumes:
-  #     - ~/server/config/uptimekuma:/app/data
-  #   ports:
-  #     - 3001:3001
-  #   restart: unless-stopped
-  #   networks:
-  #     - shared-network

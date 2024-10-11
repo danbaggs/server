@@ -56,8 +56,8 @@ networks:
   vpn-network:
     name: vpn-network 
     driver: bridge
-    # ipam:
-    #   config:
-    #     - subnet: 172.20.0.0/16
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
   shared-network:
     driver: bridge
