@@ -40,17 +40,6 @@
           username: ""
           password: ""
           rpcUrl: "/transmission/"
-    - Calibre:
-        icon: calibre.png
-        description: "ebooks library"
-        href: http://asus:8083/
-        server: dockerproxy
-        container: calibre-web
-        widget:
-          type: calibreweb
-          url: http://calibre-web:8083
-          username: {{HOMEPAGE_VAR_CALIBRE_USERNAME}}
-          password: {{HOMEPAGE_VAR_CALIBRE_PASSWORD}}
 
 - Servarr:
     - Sonarr:
@@ -83,16 +72,7 @@
     #       type: readarr
     #       url: http://transmission-openvpn:8787
     #       key: {{HOMEPAGE_VAR_READARR_API_KEY}}
-    - Prowlarr:
-        icon: prowlarr.png
-        description: "Torrent Indexer Service"
-        href: http://asus:9696/
-        server: dockerproxy
-        container: prowlarr
-        widget:
-          type: prowlarr
-          url: http://transmission-openvpn:9696
-          key: {{HOMEPAGE_VAR_PROWLARR_API_KEY}}
+
     - Bazarr:
         icon: bazarr.png
         description: "Subtitles Management"
@@ -105,6 +85,38 @@
           key: {{HOMEPAGE_VAR_BAZARR_API_KEY}}
 
 - Tools:
+    - Calibre:
+        icon: calibre.png
+        description: "ebooks library"
+        href: http://asus:8083/
+        server: dockerproxy
+        container: calibre-web
+        widget:
+          type: calibreweb
+          url: http://calibre-web:8083
+          username: {{HOMEPAGE_VAR_CALIBRE_USERNAME}}
+          password: {{HOMEPAGE_VAR_CALIBRE_PASSWORD}}
+    - Prowlarr:
+        icon: prowlarr.png
+        description: "Torrent Indexer Service"
+        href: http://asus:9696/
+        server: dockerproxy
+        container: prowlarr
+        widget:
+          type: prowlarr
+          url: http://transmission-openvpn:9696
+          key: {{HOMEPAGE_VAR_PROWLARR_API_KEY}}
+    - Portainer:
+        icon: portainer.png
+        description: "Docker Management UI"
+        href: https://asus:9443
+        server: dockerproxy
+        container: portainer
+        widget:
+          type: portainer
+          url: https://portainer:9443
+          env: 2
+          key: {{HOMEPAGE_VAR_PORTAINER_API_KEY}}
     # - Gitlab:
     #     icon: gitlab.png
     #     description: "Self-hosted Gitlab"
@@ -122,17 +134,12 @@
         href: http://asus:8080/
         server: dockerproxy
         container: stirling-pdf
-    - Portainer:
-        icon: portainer.png
-        description: "Docker Management UI"
-        href: https://asus:9443
+    - Nextcloud:
+        icon: nextcloud.png
+        description: "File Sync and Share"
+        href: https://asus:8443/
         server: dockerproxy
-        container: portainer
-        widget:
-          type: portainer
-          url: https://portainer:9443
-          env: 2
-          key: ptr_RRcdkzHTEN7sD7WZnsRCCrmRwiddl9EB1YOLETM165A=
+        container: nextcloud
     - Jellystat:
         icon: jellystat.png
         description: "Jellyfin Statistics"

@@ -29,7 +29,7 @@ services:
       - ~/server/config/jellyfin/cache:/cache
       - type: bind
         source: /data/media
-        target: /transcend/media
+        target: /transcend/media # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: "unless-stopped"
     # # Optional - alternative address used for autodiscovery
     # environment:
@@ -67,18 +67,3 @@ services:
     depends_on:
       - jellystat-db
     restart: unless-stopped
-
-  stirling-pdf:
-    container_name: stirling-pdf
-    image: frooodle/s-pdf:latest
-    ports:
-      - "8080:8080"
-    volumes:
-      - ~/server/config/stirlingpdf/trainingData:/usr/share/tessdata #Required for extra OCR languages
-      - ~/server/config/stirlingpdf/extraConfigs:/configs
-#      - ~/server/config/stirlingpdf/customFiles:/customFiles/
-#      - ~/server/config/stirlingpdf/logs:/logs/
-    environment:
-      - DOCKER_ENABLE_SECURITY=false
-      - INSTALL_BOOK_AND_ADVANCED_HTML_OPS=false
-      - LANGS=en_GB

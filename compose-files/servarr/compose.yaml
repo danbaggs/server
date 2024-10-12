@@ -53,7 +53,7 @@ services:
       TZ: Etc/UTC
     volumes:
       - ~/server/config/sonarr/config:/config
-      - /data:/transcend
+      - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
 
   radarr:
@@ -68,7 +68,7 @@ services:
       TZ: Etc/UTC
     volumes:
       - ~/server/config/radarr/config:/config
-      - /data:/transcend
+      - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
 
   bazarr:
@@ -83,7 +83,7 @@ services:
       TZ: Etc/UTC
     volumes:
       - ~/server/config/bazarr/config:/config
-      - /data:/transcend
+      - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
 
   # readarr-ebooks:
@@ -98,5 +98,5 @@ services:
   #     TZ: Etc/UTC
   #   volumes:
   #     - ~/server/config/readarr-ebooks/config:/config
-  #     - /data:/transcend #optional
+  #     - /data:/transcend  # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
   #   restart: unless-stopped

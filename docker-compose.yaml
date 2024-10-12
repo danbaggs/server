@@ -3,6 +3,7 @@ include:
   - compose-files/openvpn-transmission/compose.yaml
   - compose-files/servarr/compose.yaml
   - compose-files/media/compose.yaml
+  - compose-files/tools/compose.yaml
   # - compose-files/gitlab/compose.yaml
 
 services:
@@ -21,6 +22,7 @@ services:
       HOMEPAGE_VAR_JELLYSEERR_API_KEY: $JELLYSEERR_API_KEY
       HOMEPAGE_VAR_PROWLARR_API_KEY: $PROWLARR_API_KEY
       HOMEPAGE_VAR_READARR_API_KEY: $READARR_API_KEY
+      HOMEPAGE_VAR_PORTAINER_API_KEY: $PORTAINER_API_KEY
     ports:
       - 80:3000
     volumes:

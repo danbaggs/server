@@ -9,7 +9,7 @@ services:
     volumes:
       - ~/server/config/transmission/config:/config/transmission-home
       - ~/server/config/openvpn/config:/config/openvpn
-      - /data:/transcend
+      - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     environment:
       PUID: 1000
       PGID: 1000
@@ -19,7 +19,7 @@ services:
       DISABLE_IPV6: true
       TRANSMISSION_WEB_UI_PORT: 9091
       LOCAL_NETWORK: 192.168.0.0/24
-      TRANSMISSION_DOWNLOAD_DIR: /transcend/torrents
+      TRANSMISSION_DOWNLOAD_DIR: /transcend/torrents # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     sysctls:
       - "net.ipv6.conf.all.disable_ipv6=0"  # This bypasses Docker weirdness with ipv6
     ports:  # map all svc you wanna route through VPN

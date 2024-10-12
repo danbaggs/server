@@ -1,0 +1,35 @@
+services:
+
+  stirling-pdf:
+    container_name: stirling-pdf
+    image: frooodle/s-pdf:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ~/server/config/stirlingpdf/trainingData:/usr/share/tessdata #Required for extra OCR languages
+      - ~/server/config/stirlingpdf/extraConfigs:/configs
+#      - ~/server/config/stirlingpdf/customFiles:/customFiles/
+#      - ~/server/config/stirlingpdf/logs:/logs/
+    environment:
+      DOCKER_ENABLE_SECURITY: false
+      INSTALL_BOOK_AND_ADVANCED_HTML_OPS: false
+      LANGS: en_GB
+    restart: unless-stopped
+    networks:
+      - shared-network
+
+  nextcloud:
+    image: lscr.io/linuxserver/nextcloud:latest
+    container_name: nextcloud
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Etc/UTC
+    volumes:
+      - ~/server/config/nextcloud/config:/config
+      - /data:/data
+    ports:
+      - 8443:443
+    restart: unless-stopped
+    networks:
+      - shared-network
