@@ -4,6 +4,7 @@ include:
   - compose-files/servarr/compose.yaml
   - compose-files/media/compose.yaml
   - compose-files/tools/compose.yaml
+  # - compose-files/nginx-proxy-manager/compose.yaml
   # - compose-files/gitlab/compose.yaml
 
 services:
@@ -23,6 +24,8 @@ services:
       HOMEPAGE_VAR_PROWLARR_API_KEY: $PROWLARR_API_KEY
       HOMEPAGE_VAR_READARR_API_KEY: $READARR_API_KEY
       HOMEPAGE_VAR_PORTAINER_API_KEY: $PORTAINER_API_KEY
+      HOMEPAGE_VAR_NPM_USERNAME: $NPM_USERNAME
+      HOMEPAGE_VAR_NPM_PASSWORD: $NPM_PASSWORD
     ports:
       - 80:3000
     volumes:
@@ -51,7 +54,6 @@ services:
     networks:
       - shared-network
       - vpn-network
-
 
 
 networks:

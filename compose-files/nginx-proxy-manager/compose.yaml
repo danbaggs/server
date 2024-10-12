@@ -1,0 +1,36 @@
+services:
+    
+  nginx-proxy-manager:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: nginx-proxy-manager
+    ports:
+      - 80:80
+      - 81:81
+      - 443:443
+    environment:
+      DB_MYSQL_HOST: nginx-pm-db
+      DB_MYSQL_PORT: 3306
+      DB_MYSQL_USER: $DB_MYSQL_USER
+      DB_MYSQL_PASSWORD: $DB_MYSQL_PASSWORD
+      DB_MYSQL_NAME: nginx-proxy-manager
+    volumes:
+      - ~/server/config/nginx-pm/data:/data
+      - ~/server/config/letsencrypt:/etc/letsencrypt
+    restart: unless-stopped
+    networks:
+      - shared-network
+      - vpn-network
+
+  nginx-pm-db:
+    image: jc21/mariadb-aria:latest
+    container_name: nginx-pm-db
+    environment:
+      MYSQL_ROOT_PASSWORD: $DB_MYSQL_PASSWORD
+      MYSQL_DATABASE: nginx-proxy-manager
+      MYSQL_USER: $DB_MYSQL_USER
+      MYSQL_PASSWORD: $DB_MYSQL_PASSWORD
+    volumes:
+      - ~/server/config/nginx-pm-db:/var/lib/mysql
+    restart: unless-stopped
+    networks:
+      - shared-network
