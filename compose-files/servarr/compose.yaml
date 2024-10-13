@@ -86,17 +86,17 @@ services:
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
 
-  # readarr-ebooks:
-  #   image: lscr.io/linuxserver/readarr:develop
-  #   container_name: readarr-ebooks
-  #   depends_on:
-  #     - openvpn-client
-  #   network_mode: "service:openvpn-client"
-  #   environment:
-  #     - PUID=1000
-  #     - PGID=1000
-  #     TZ: Etc/UTC
-  #   volumes:
-  #     - ~/server/config/readarr-ebooks/config:/config
-  #     - /data:/transcend  # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
-  #   restart: unless-stopped
+  readarr-audiobooks:
+    image: lscr.io/linuxserver/readarr:develop
+    container_name: readarr-audiobooks
+    depends_on:
+      - openvpn-client
+    network_mode: "service:openvpn-client"
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Etc/UTC
+    volumes:
+      - ~/server/config/readarr-audiobooks/config:/config
+      - /data:/transcend  # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
+    restart: unless-stopped

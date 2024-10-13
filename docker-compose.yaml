@@ -8,6 +8,7 @@ include:
   # - compose-files/gitlab/compose.yaml
 
 services:
+
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage

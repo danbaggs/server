@@ -30,7 +30,7 @@ services:
       - 7878:7878 # Radarr
       - 6767:6767 # Bazarr
       - 5055:5055 # Jellyseerr
-      # - 8787:8787 # Readarr EBOOKS
+      - 8787:8787 # Readarr Audiobooks
     restart: unless-stopped
     networks:
       vpn-network:

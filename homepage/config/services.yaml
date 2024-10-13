@@ -3,157 +3,156 @@
 # https://gethomepage.dev/latest/configs/services
 
 - Media Server:
-      - Jellyseerr:
-            icon: jellyseerr.png
-            description: "Media search"
-            href: http://asus:5055
-            server: dockerproxy
-            container: jellyseerr
-            widget:
-                type: jellyseerr
-                url: http://transmission-openvpn:5055
-                key: {{HOMEPAGE_VAR_JELLYSEERR_API_KEY}}
-      - Jellyfin:
-            icon: jellyfin.png
-            description: "Media server"
-            href: http://asus:8096/
-            server: dockerproxy
-            container: jellyfin
-            widget:
-                type: jellyfin
-                url: http://192.168.0.32:8096
-                key: {{HOMEPAGE_VAR_JELLYFIN_API_KEY}}
-                enableBlocks: true # optional, defaults to false
-                enableNowPlaying: true # optional, defaults to true
-                # enableUser: true # optional, defaults to false
-                showEpisodeNumber: true # optional, defaults to false
-                expandOneStreamToTwoRows: false # optional, defaults to true
-      - Transmission:
-            icon: transmission.png
-            description: "Torrent Download Client"
-            href: http://asus:9091
-            server: dockerproxy
-            container: transmission-openvpn
-            widget:
-                type: transmission
-                url: http://transmission-openvpn:9091
-                username: ""
-                password: ""
-                rpcUrl: "/transmission/"
+    - Jellyseerr:
+        icon: jellyseerr.png
+        description: "Media search"
+        href: http://asus:5055
+        server: dockerproxy
+        container: jellyseerr
+        widget:
+          type: jellyseerr
+          url: http://transmission-openvpn:5055
+          key: {{HOMEPAGE_VAR_JELLYSEERR_API_KEY}}
+    - Jellyfin:
+        icon: jellyfin.png
+        description: "Media server"
+        href: http://asus:8096/
+        server: dockerproxy
+        container: jellyfin
+        widget:
+          type: jellyfin
+          url: http://192.168.0.32:8096
+          key: {{HOMEPAGE_VAR_JELLYFIN_API_KEY}}
+          enableBlocks: true # optional, defaults to false
+          enableNowPlaying: true # optional, defaults to true
+          # enableUser: true # optional, defaults to false
+          showEpisodeNumber: true # optional, defaults to false
+          expandOneStreamToTwoRows: false # optional, defaults to true
+    - Transmission:
+        icon: transmission.png
+        description: "Torrent Download Client"
+        href: http://asus:9091
+        server: dockerproxy
+        container: transmission-openvpn
+        widget:
+          type: transmission
+          url: http://transmission-openvpn:9091
+          username: ""
+          password: ""
+          rpcUrl: "/transmission/"
 
 - Servarr:
-      - Sonarr:
-            icon: sonarr.png
-            description: "TV Shows Management"
-            href: http://asus:8989
-            server: dockerproxy
-            container: sonarr
-            widget:
-                type: sonarr
-                url: http://transmission-openvpn:8989
-                key: {{HOMEPAGE_VAR_SONARR_API_KEY}}
-      - Radarr:
-            icon: radarr.png
-            description: "Movies Management"
-            href: http://asus:7878/
-            server: dockerproxy
-            container: radarr
-            widget:
-                type: radarr
-                url: http://transmission-openvpn:7878
-                key: {{HOMEPAGE_VAR_RADARR_API_KEY}}
-      # - Readarr eBooks:
-      #     icon: readarr.png
-      #     description: "Torrent Indexer"
-      #     href: http://asus:8787/
-      #     server: dockerproxy
-      #     container: readarr-ebooks
-      #     widget:
-      #       type: readarr
-      #       url: http://transmission-openvpn:8787
-      #       key: {{HOMEPAGE_VAR_READARR_API_KEY}}
-
-      - Bazarr:
-            icon: bazarr.png
-            description: "Subtitles Management"
-            href: http://asus:6767/
-            server: dockerproxy
-            container: bazarr
-            widget:
-                type: bazarr
-                url: http://transmission-openvpn:6767
-                key: {{HOMEPAGE_VAR_BAZARR_API_KEY}}
+    - Sonarr:
+        icon: sonarr.png
+        description: "TV Shows Management"
+        href: http://asus:8989
+        server: dockerproxy
+        container: sonarr
+        widget:
+          type: sonarr
+          url: http://transmission-openvpn:8989
+          key: {{HOMEPAGE_VAR_SONARR_API_KEY}}
+    - Radarr:
+        icon: radarr.png
+        description: "Movies Management"
+        href: http://asus:7878/
+        server: dockerproxy
+        container: radarr
+        widget:
+          type: radarr
+          url: http://transmission-openvpn:7878
+          key: {{HOMEPAGE_VAR_RADARR_API_KEY}}
+    - Readarr Audiobooks:
+        icon: readarr.png
+        description: "Audiobook Management"
+        href: http://asus:8787/
+        server: dockerproxy
+        container: readarr-audiobooks
+        widget:
+          type: readarr
+          url: http://transmission-openvpn:8787
+          key: {{HOMEPAGE_VAR_READARR_API_KEY}}
 
 - Tools:
-      - Calibre:
-            icon: calibre.png
-            description: "ebooks library"
-            href: http://asus:8083/
-            server: dockerproxy
-            container: calibre-web
-            widget:
-                type: calibreweb
-                url: http://calibre-web:8083
-                username: {{HOMEPAGE_VAR_CALIBRE_USERNAME}}
-                password: {{HOMEPAGE_VAR_CALIBRE_PASSWORD}}
-      - Prowlarr:
-            icon: prowlarr.png
-            description: "Torrent Indexer Service"
-            href: http://asus:9696/
-            server: dockerproxy
-            container: prowlarr
-            widget:
-                type: prowlarr
-                url: http://transmission-openvpn:9696
-                key: {{HOMEPAGE_VAR_PROWLARR_API_KEY}}
-      - Portainer:
-            icon: portainer.png
-            description: "Docker Management UI"
-            href: https://asus:9443
-            server: dockerproxy
-            container: portainer
-            widget:
-                type: portainer
-                url: https://portainer:9443
-                env: 2
-                key: {{HOMEPAGE_VAR_PORTAINER_API_KEY}}
-      # - Gitlab:
-      #     icon: gitlab.png
-      #     description: "Self-hosted Gitlab"
-      #     href: http://asus:8929
-      #     server: dockerproxy
-      #     container: gitlab
-      # - Gitlab Runner:
-      #     description: "Self-hosted Gitlab CI/CD Runner"
-      #     icon: gitlab.png
-      #     server: dockerproxy
-      #     container: gitlab-runner
-      - Stirling PDF:
-            icon: stirling-pdf.png
-            description: "PDF Tools"
-            href: http://asus:8080/
-            server: dockerproxy
-            container: stirling-pdf
-      - Nextcloud:
-            icon: nextcloud.png
-            description: "File Sync and Share"
-            href: https://asus:8443/
-            server: dockerproxy
-            container: nextcloud
-      - Jellystat:
-            icon: jellystat.png
-            description: "Jellyfin Statistics"
-            href: http://asus:3000/
-            server: dockerproxy
-            container: jellystat
-      # - Nginx Proxy Manager:
-      #     icon: nginx-proxy-manager.png
-      #     description: "Reverse Proxy"
-      #     href: https://asus:81/
-      #     server: dockerproxy
-      #     container: nginx-proxy-manager
-      # widget:
-      #   type: npm
-      #   url: http://asus:81
-      #   username: {{HOMEPAGE_VAR_NPM_USERNAME}}
-      #   password: {{HOMEPAGE_VAR_NPM_PASSWORD}}
+    - Calibre:
+        icon: calibre.png
+        description: "ebooks library"
+        href: http://asus:8083/
+        server: dockerproxy
+        container: calibre-web
+        widget:
+          type: calibreweb
+          url: http://calibre-web:8083
+          username: {{HOMEPAGE_VAR_CALIBRE_USERNAME}}
+          password: {{HOMEPAGE_VAR_CALIBRE_PASSWORD}}
+    - Bazarr:
+        icon: bazarr.png
+        description: "Subtitles Management"
+        href: http://asus:6767/
+        server: dockerproxy
+        container: bazarr
+        widget:
+          type: bazarr
+          url: http://transmission-openvpn:6767
+          key: {{HOMEPAGE_VAR_BAZARR_API_KEY}}
+    - Prowlarr:
+        icon: prowlarr.png
+        description: "Torrent Indexer Service"
+        href: http://asus:9696/
+        server: dockerproxy
+        container: prowlarr
+        widget:
+          type: prowlarr
+          url: http://transmission-openvpn:9696
+          key: {{HOMEPAGE_VAR_PROWLARR_API_KEY}}
+    - Portainer:
+        icon: portainer.png
+        description: "Docker Management UI"
+        href: https://asus:9443
+        server: dockerproxy
+        container: portainer
+        widget:
+          type: portainer
+          url: https://portainer:9443
+          env: 2
+          key: {{HOMEPAGE_VAR_PORTAINER_API_KEY}}
+    # - Gitlab:
+    #     icon: gitlab.png
+    #     description: "Self-hosted Gitlab"
+    #     href: http://asus:8929
+    #     server: dockerproxy
+    #     container: gitlab
+    # - Gitlab Runner:
+    #     description: "Self-hosted Gitlab CI/CD Runner"
+    #     icon: gitlab.png
+    #     server: dockerproxy
+    #     container: gitlab-runner
+    - Stirling PDF:
+        icon: stirling-pdf.png
+        description: "PDF Tools"
+        href: http://asus:8080/
+        server: dockerproxy
+        container: stirling-pdf
+    - Nextcloud:
+        icon: nextcloud.png
+        description: "File Sync and Share"
+        href: https://asus:8443/
+        server: dockerproxy
+        container: nextcloud
+    - Jellystat:
+        icon: jellystat.png
+        description: "Jellyfin Statistics"
+        href: http://asus:3000/
+        server: dockerproxy
+        container: jellystat
+    # - Nginx Proxy Manager:
+    #     icon: nginx-proxy-manager.png
+    #     description: "Reverse Proxy"
+    #     href: https://asus:81/
+    #     server: dockerproxy
+    #     container: nginx-proxy-manager
+    # widget:
+    #   type: npm
+    #   url: http://asus:81
+    #   username: {{HOMEPAGE_VAR_NPM_USERNAME}}
+    #   password: {{HOMEPAGE_VAR_NPM_PASSWORD}}
