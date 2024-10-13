@@ -17,6 +17,25 @@ services:
     networks:
       - shared-network
 
+  booksonic-air:
+    image: lscr.io/linuxserver/booksonic-air:latest
+    container_name: booksonic-air
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Etc/UTC
+      # CONTEXT_PATH: booksonic #optional
+    volumes:
+      - ~/server/config/booksonic-air/config:/config
+      - /data/media/audiobooks:/audiobooks
+      # - /path/to/podcasts:/podcasts
+      # - /path/to/othermedia:/othermedia
+    ports:
+      - 4040:4040
+    restart: unless-stopped
+    networks:
+      - shared-network
+
   jellyfin:
     image: jellyfin/jellyfin:latest
     container_name: jellyfin
@@ -61,7 +80,7 @@ services:
       POSTGRES_PORT: 5432
       JWT_SECRET: $JWT_SECRET
     ports:
-      - "3000:3000" #Server Port
+      - 3000:3000 #Server Port
     volumes:
       - ~/server/config/jellystat:/app/backend/backup-data
     depends_on:

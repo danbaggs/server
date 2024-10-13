@@ -65,4 +65,5 @@ networks:
       config:
         - subnet: 172.19.0.0/16
   shared-network:
+    name: shared-network
     driver: bridge

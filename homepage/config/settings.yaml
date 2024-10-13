@@ -20,7 +20,7 @@ layout:
   Media Server:
     useEqualHeights: true
     style: row
-    columns: 3
+    columns: 4
     icon: jellyfin.png
   Servarr:
     style: row
@@ -28,5 +28,5 @@ layout:
     icon: servarr.png
   Tools:
     style: row
-    columns: 3
+    columns: 4
     icon: mealie.png

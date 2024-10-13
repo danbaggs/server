@@ -16,6 +16,10 @@ services:
     volumes:
       - ~/server/config/nginx-pm/data:/data
       - ~/server/config/letsencrypt:/etc/letsencrypt
+    healthcheck:
+      test: ["CMD", "/usr/bin/check-health"]
+      interval: 10s
+      timeout: 3s
     restart: unless-stopped
     networks:
       - shared-network
@@ -34,3 +38,4 @@ services:
     restart: unless-stopped
     networks:
       - shared-network
+      - vpn-network
