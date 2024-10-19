@@ -7,8 +7,8 @@ services:
     devices:
       - /dev/net/tun
     volumes:
-      - ~/server/config/transmission/config:/config/transmission-home
-      - ~/server/config/openvpn/config:/config/openvpn
+      - ${BASE_PATH}/config/transmission/config:/config/transmission-home
+      - ${BASE_PATH}/config/openvpn/config:/config/openvpn
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     environment:
       PUID: 1000

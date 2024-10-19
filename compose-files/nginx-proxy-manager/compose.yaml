@@ -14,8 +14,8 @@ services:
       DB_MYSQL_PASSWORD: $DB_MYSQL_PASSWORD
       DB_MYSQL_NAME: nginx-proxy-manager
     volumes:
-      - ~/server/config/nginx-pm/data:/data
-      - ~/server/config/letsencrypt:/etc/letsencrypt
+      - ${BASE_PATH}/config/nginx-pm/data:/data
+      - ${BASE_PATH}/config/letsencrypt:/etc/letsencrypt
     healthcheck:
       test: ["CMD", "/usr/bin/check-health"]
       interval: 10s
@@ -34,7 +34,7 @@ services:
       MYSQL_USER: $DB_MYSQL_USER
       MYSQL_PASSWORD: $DB_MYSQL_PASSWORD
     volumes:
-      - ~/server/config/nginx-pm-db:/var/lib/mysql
+      - ${BASE_PATH}/config/nginx-pm-db:/var/lib/mysql
     restart: unless-stopped
     networks:
       - shared-network

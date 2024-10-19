@@ -13,10 +13,10 @@ services:
       - "443:443"
       - "2424:22"
     volumes:
-      - "~/server/config/gitlab/config:/etc/gitlab"
-      - "~/server/config/gitlab/logs:/var/log/gitlab"
-      - "~/server/config/gitlab/data:/var/opt/gitlab"
-      - "~/server/config/gitlabrunner/config:/etc/gitlab-runner"
+      - "${BASE_PATH}/config/gitlab/config:/etc/gitlab"
+      - "${BASE_PATH}/config/gitlab/logs:/var/log/gitlab"
+      - "${BASE_PATH}/config/gitlab/data:/var/opt/gitlab"
+      - "${BASE_PATH}/config/gitlabrunner/config:/etc/gitlab-runner"
     shm_size: "256m"
     networks:
       - shared-network
@@ -27,7 +27,7 @@ services:
     network_mode: "host"
     restart: unless-stopped
     volumes:
-      - "~/server/config/gitlabrunner/config:/etc/gitlab-runner"
+      - "${BASE_PATH}/config/gitlabrunner/config:/etc/gitlab-runner"
       - "/var/run/docker.sock:/var/run/docker.sock"
     environment:
       CI_SERVER_URL: http://192.168.0.32:8929/

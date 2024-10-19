@@ -9,7 +9,7 @@ services:
       DOCKER_MODS: linuxserver/mods:universal-calibre # required for ebook conversion
       OAUTHLIB_RELAX_TOKEN_SCOPE: 1 #optional
     volumes:
-      - ~/server/config/calibre:/config
+      - ${BASE_PATH}/config/calibre:/config
       - /data/media/books:/books
     ports:
       - 8083:8083
@@ -26,7 +26,7 @@ services:
       TZ: Etc/UTC
       # CONTEXT_PATH: booksonic #optional
     volumes:
-      - ~/server/config/booksonic-air/config:/config
+      - ${BASE_PATH}/config/booksonic-air/config:/config
       - /data/media/audiobooks:/audiobooks
       # - /path/to/podcasts:/podcasts
       # - /path/to/othermedia:/othermedia
@@ -44,8 +44,8 @@ services:
     ports:
       - 8096:8096
     volumes:
-      - ~/server/config/jellyfin/config:/config
-      - ~/server/config/jellyfin/cache:/cache
+      - ${BASE_PATH}/config/jellyfin/config:/config
+      - ${BASE_PATH}/config/jellyfin/cache:/cache
       - type: bind
         source: /data/media
         target: /transcend/media # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
@@ -67,7 +67,7 @@ services:
       POSTGRES_USER: $POSTGRES_USER
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
     volumes:
-    - ~/server/config/postgres-data:/var/lib/postgresql/data
+    - ${BASE_PATH}/config/postgres-data:/var/lib/postgresql/data
     restart: unless-stopped
 
   jellystat:
@@ -82,7 +82,7 @@ services:
     ports:
       - 3000:3000 #Server Port
     volumes:
-      - ~/server/config/jellystat:/app/backend/backup-data
+      - ${BASE_PATH}/config/jellystat:/app/backend/backup-data
     depends_on:
       - jellystat-db
     restart: unless-stopped

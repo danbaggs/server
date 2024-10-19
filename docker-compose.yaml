@@ -30,9 +30,9 @@ services:
     ports:
       - 80:3000
     volumes:
-      - ~/server/homepage/config:/app/config
-      - ~/server/homepage/images:/app/public/images
-      - ~/server/homepage/icons:/app/public/icons
+      - ${BASE_PATH}/homepage/config:/app/config
+      - ${BASE_PATH}/homepage/images:/app/public/images
+      - ${BASE_PATH}/homepage/icons:/app/public/icons
     restart: unless-stopped
     networks:
       - shared-network

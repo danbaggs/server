@@ -12,7 +12,7 @@ services:
       LOG_LEVEL: debug
       TZ: Etc/UTC
     volumes:
-      - ~/server/config/jellyseerr/config:/app/config
+      - ${BASE_PATH}/config/jellyseerr/config:/app/config
     restart: unless-stopped
 
   prowlarr:
@@ -22,7 +22,7 @@ services:
       - openvpn-client
     network_mode: "service:openvpn-client"
     volumes:
-      - ~/server/config/prowlarr/config:/config
+      - ${BASE_PATH}/config/prowlarr/config:/config
     environment:
       PUID: 1000
       PGID: 1000
@@ -52,7 +52,7 @@ services:
       PGID: 1000
       TZ: Etc/UTC
     volumes:
-      - ~/server/config/sonarr/config:/config
+      - ${BASE_PATH}/config/sonarr/config:/config
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
 
@@ -67,7 +67,7 @@ services:
       PGID: 1000
       TZ: Etc/UTC
     volumes:
-      - ~/server/config/radarr/config:/config
+      - ${BASE_PATH}/config/radarr/config:/config
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
 
@@ -82,7 +82,7 @@ services:
       PGID: 1000
       TZ: Etc/UTC
     volumes:
-      - ~/server/config/bazarr/config:/config
+      - ${BASE_PATH}/config/bazarr/config:/config
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
 
@@ -97,6 +97,6 @@ services:
       PGID: 1000
       TZ: Etc/UTC
     volumes:
-      - ~/server/config/readarr-audiobooks/config:/config
+      - ${BASE_PATH}/config/readarr-audiobooks/config:/config
       - /data:/transcend  # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped

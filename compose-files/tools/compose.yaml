@@ -6,10 +6,10 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ~/server/config/stirlingpdf/trainingData:/usr/share/tessdata #Required for extra OCR languages
-      - ~/server/config/stirlingpdf/extraConfigs:/configs
-#      - ~/server/config/stirlingpdf/customFiles:/customFiles/
-#      - ~/server/config/stirlingpdf/logs:/logs/
+      - ${BASE_PATH}/config/stirlingpdf/trainingData:/usr/share/tessdata #Required for extra OCR languages
+      - ${BASE_PATH}/config/stirlingpdf/extraConfigs:/configs
+#      - ${BASE_PATH}/config/stirlingpdf/customFiles:/customFiles/
+#      - ${BASE_PATH}/config/stirlingpdf/logs:/logs/
     environment:
       DOCKER_ENABLE_SECURITY: false
       INSTALL_BOOK_AND_ADVANCED_HTML_OPS: false
@@ -26,7 +26,7 @@ services:
       PGID: 1000
       TZ: Etc/UTC
     volumes:
-      - ~/server/config/nextcloud/config:/config
+      - ${BASE_PATH}/config/nextcloud/config:/config
       - /data:/data
     ports:
       - 8443:443
