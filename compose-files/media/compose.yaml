@@ -66,6 +66,8 @@ services:
     volumes:
     - ${BASE_PATH}/config/postgres-data:/var/lib/postgresql/data
     restart: unless-stopped
+    networks:
+      - shared-network
 
   jellystat:
     container_name: jellystat
@@ -83,3 +85,5 @@ services:
     depends_on:
       - jellystat-db
     restart: unless-stopped
+    networks:
+      - shared-network
