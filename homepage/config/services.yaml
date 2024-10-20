@@ -28,12 +28,16 @@
           # enableUser: true # optional, defaults to false
           showEpisodeNumber: true # optional, defaults to false
           expandOneStreamToTwoRows: false # optional, defaults to true
-    - Booksonic-Air:
-        icon: booksonic.png
-        description: "Audiobooks server"
-        href: http://asus:4040
+    - Audiobookshelf:
+        icon: audiobookshelf.png
+        description: "Audiobooks library"
+        href: http://asus:13378
         server: dockerproxy
-        container: booksonic-air
+        container: audiobookshelf
+        widget:
+          type: audiobookshelf
+          url: http://audiobookshelf
+          key: {{HOMEPAGE_VAR_AUDIOBOOKSHELF_API_KEY}}
     - Calibre:
         icon: calibre.png
         description: "ebooks library"

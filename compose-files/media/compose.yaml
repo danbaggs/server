@@ -1,4 +1,5 @@
 services:
+
   calibre-web:
     image: lscr.io/linuxserver/calibre-web:latest
     container_name: calibre-web
@@ -17,21 +18,17 @@ services:
     networks:
       - shared-network
 
-  booksonic-air:
-    image: lscr.io/linuxserver/booksonic-air:latest
-    container_name: booksonic-air
-    environment:
-      PUID: 1000
-      PGID: 1000
-      TZ: Etc/UTC
-      # CONTEXT_PATH: booksonic #optional
-    volumes:
-      - ${BASE_PATH}/config/booksonic-air/config:/config
-      - /data/media/audiobooks:/audiobooks
-      # - /path/to/podcasts:/podcasts
-      # - /path/to/othermedia:/othermedia
+  audiobookshelf:
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    container_name: audiobookshelf
     ports:
-      - 4040:4040
+      - 13378:80
+    volumes:
+      - /data/media/audiobooks:/audiobooks
+      - ${BASE_PATH}/config/audiobookshelf/config/:/config
+      - ${BASE_PATH}/config/audiobookshelf/metadata:/metadata
+    environment:
+      TZ: Etc/UTC
     restart: unless-stopped
     networks:
       - shared-network
