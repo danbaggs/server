@@ -36,8 +36,7 @@ services:
       - ${BASE_PATH}/homepage/icons:/app/public/icons
     restart: unless-stopped
     networks:
-      - shared-network
-      # - vpn-network
+      - homelab
 
   dockerproxy:
     image: ghcr.io/tecnativa/docker-socket-proxy:latest
@@ -54,17 +53,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro # Mounted as read-only
     restart: unless-stopped
     networks:
-      - shared-network
-      - vpn-network
+      - homelab
 
 
 networks:
-  vpn-network:
-    name: vpn-network 
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.19.0.0/16
-  shared-network:
-    name: shared-network
+  homelab:
+    name: homelab
     driver: bridge

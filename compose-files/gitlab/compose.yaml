@@ -19,7 +19,7 @@ services:
       - "${BASE_PATH}/config/gitlabrunner/config:/etc/gitlab-runner"
     shm_size: "256m"
     networks:
-      - shared-network
+      - homelab
   
   gitlab-runner:
     image: gitlab/gitlab-runner:latest
@@ -33,4 +33,4 @@ services:
       CI_SERVER_URL: http://192.168.0.32:8929/
       REGISTRATION_TOKEN: $GITLAB_RUNNER_REGISTRATION_TOKEN # Replace with your GitLab Runner registration token
     # networks:
-    #   - shared-network
+    #   - homelab

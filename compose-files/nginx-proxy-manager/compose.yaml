@@ -22,8 +22,7 @@ services:
       timeout: 3s
     restart: unless-stopped
     networks:
-      - shared-network
-      - vpn-network
+      - homelab
 
   nginx-pm-db:
     image: jc21/mariadb-aria:latest
@@ -37,5 +36,4 @@ services:
       - ${BASE_PATH}/config/nginx-pm-db:/var/lib/mysql
     restart: unless-stopped
     networks:
-      - shared-network
-      - vpn-network
+      - homelab

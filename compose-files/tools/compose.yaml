@@ -16,7 +16,7 @@ services:
       LANGS: en_GB
     restart: unless-stopped
     networks:
-      - shared-network
+      - homelab
 
   nextcloud:
     image: lscr.io/linuxserver/nextcloud:latest
@@ -32,4 +32,4 @@ services:
       - 8443:443
     restart: unless-stopped
     networks:
-      - shared-network
+      - homelab

@@ -16,7 +16,7 @@ services:
       - 8083:8083
     restart: unless-stopped
     networks:
-      - shared-network
+      - homelab
 
   audiobookshelf:
     image: ghcr.io/advplyr/audiobookshelf:latest
@@ -31,7 +31,7 @@ services:
       TZ: Etc/UTC
     restart: unless-stopped
     networks:
-      - shared-network
+      - homelab
 
   jellyfin:
     image: jellyfin/jellyfin:latest
@@ -54,7 +54,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
-      - shared-network
+      - homelab
 
   jellystat-db:
     container_name: jellystat-db
@@ -67,7 +67,7 @@ services:
     - ${BASE_PATH}/config/postgres-data:/var/lib/postgresql/data
     restart: unless-stopped
     networks:
-      - shared-network
+      - homelab
 
   jellystat:
     container_name: jellystat
@@ -86,4 +86,4 @@ services:
       - jellystat-db
     restart: unless-stopped
     networks:
-      - shared-network
+      - homelab
