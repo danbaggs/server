@@ -18,7 +18,7 @@ services:
       OPENVPN_PASSWORD: $OPENVPN_PASSWORD
       DISABLE_IPV6: true
       TRANSMISSION_WEB_UI_PORT: 9091
-      LOCAL_NETWORK: 192.168.0.0/24
+      LOCAL_NETWORK: 192.168.1.0/24
       TRANSMISSION_DOWNLOAD_DIR: /transcend/torrents # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     sysctls:
       - "net.ipv6.conf.all.disable_ipv6=0"  # This bypasses Docker weirdness with ipv6
