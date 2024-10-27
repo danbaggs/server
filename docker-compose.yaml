@@ -5,6 +5,7 @@ include:
   - compose-files/media/compose.yaml
   - compose-files/tools/compose.yaml
   - compose-files/nginx-proxy-manager/compose.yaml
+  # - compose-files/authentik/compose.yaml
   # - compose-files/gitlab/compose.yaml
 
 services:
