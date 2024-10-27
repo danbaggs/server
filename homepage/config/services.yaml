@@ -137,6 +137,16 @@
           url: http://nginx-proxy-manager:81
           username: {{HOMEPAGE_VAR_NPM_USERNAME}}
           password: {{HOMEPAGE_VAR_NPM_PASSWORD}}
+    - Pihole:
+        icon: pi-hole.png
+        description: "Network-wide Ad Blocking"
+        href: http://pihole.humpback-ratio.ts.net/admin
+        widget:
+          type: pihole
+          url: http://pihole.humpback-ratio.ts.net
+          version: 5
+          key: 75453985081310106115b7de40dd98e87d0ef5dd550cc99f361b8161d4454104
+
     - Stirling PDF:
         icon: stirling-pdf.png
         description: "PDF Tools"
