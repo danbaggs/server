@@ -3,9 +3,9 @@ services:
   portainer:
     image: portainer/portainer-ce:latest
     container_name: portainer
-    ports:
-      - 8000:8000
-      - 9443:9443
+    # ports:
+    #   - 8000:8000
+    #   - 9443:9443
     restart: unless-stopped
     volumes:
       - "${BASE_PATH}/config/portainer:/data"

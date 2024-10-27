@@ -41,7 +41,7 @@
     - Calibre:
         icon: calibre.png
         description: "ebooks library"
-        href: http://asus:8083/
+        href: http://calibre.baggs.io
         server: dockerproxy
         container: calibre-web
         widget:
@@ -76,7 +76,7 @@
     - Radarr:
         icon: radarr.png
         description: "Movies Management"
-        href: http://asus:7878/
+        href: http://asus:7878
         server: dockerproxy
         container: radarr
         widget:
@@ -86,7 +86,7 @@
     - Readarr Audiobooks:
         icon: readarr.png
         description: "Audiobook Management"
-        href: http://asus:8787/
+        href: http://readarr.baggs.io
         server: dockerproxy
         container: readarr-audiobooks
         widget:
@@ -96,7 +96,7 @@
     - Bazarr:
         icon: bazarr.png
         description: "Subtitles Management"
-        href: http://asus:6767/
+        href: http://bazarr.baggs.io
         server: dockerproxy
         container: bazarr
         widget:
@@ -106,7 +106,7 @@
     - Prowlarr:
         icon: prowlarr.png
         description: "Torrent Indexer Service"
-        href: http://asus:9696/
+        href: http://prowlarr.baggs.io
         server: dockerproxy
         container: prowlarr
         widget:
@@ -115,28 +115,10 @@
           key: {{HOMEPAGE_VAR_PROWLARR_API_KEY}}
 
 - Tools:
-    - Stirling PDF:
-        icon: stirling-pdf.png
-        description: "PDF Tools"
-        href: http://asus:8080/
-        server: dockerproxy
-        container: stirling-pdf
-    - Nextcloud:
-        icon: nextcloud.png
-        description: "File Sync and Share"
-        href: https://asus:8443/
-        server: dockerproxy
-        container: nextcloud
-    - Jellystat:
-        icon: jellystat.png
-        description: "Jellyfin Statistics"
-        href: http://asus:3000/
-        server: dockerproxy
-        container: jellystat
     - Portainer:
         icon: portainer.png
         description: "Docker Management UI"
-        href: https://asus:9443
+        href: https://portainer.baggs.io
         server: dockerproxy
         container: portainer
         widget:
@@ -144,17 +126,35 @@
           url: https://portainer:9443
           env: 2
           key: {{HOMEPAGE_VAR_PORTAINER_API_KEY}}
-    # - Nginx Proxy Manager:
-    #     icon: nginx-proxy-manager.png
-    #     description: "Reverse Proxy"
-    #     href: https://asus:81/
-    #     server: dockerproxy
-    #     container: nginx-proxy-manager
-    #     widget:
-    #       type: npm
-    #       url: http://asus:81
-    #       username: {{HOMEPAGE_VAR_NPM_USERNAME}}
-    #       password: {{HOMEPAGE_VAR_NPM_PASSWORD}}
+    - Nginx Proxy Manager:
+        icon: nginx-proxy-manager.png
+        description: "Reverse Proxy"
+        href: http://npm.baggs.io
+        server: dockerproxy
+        container: nginx-proxy-manager
+        widget:
+          type: npm
+          url: http://nginx-proxy-manager:81
+          username: {{HOMEPAGE_VAR_NPM_USERNAME}}
+          password: {{HOMEPAGE_VAR_NPM_PASSWORD}}
+    - Stirling PDF:
+        icon: stirling-pdf.png
+        description: "PDF Tools"
+        href: http://stirling-pdf.baggs.io
+        server: dockerproxy
+        container: stirling-pdf
+    - Nextcloud:
+        icon: nextcloud.png
+        description: "File Sync and Share"
+        href: https://nextcloud.baggs.io
+        server: dockerproxy
+        container: nextcloud
+    - Jellystat:
+        icon: jellystat.png
+        description: "Jellyfin Statistics"
+        href: http://jellystat.baggs.io
+        server: dockerproxy
+        container: jellystat
     # - Gitlab:
     #     icon: gitlab.png
     #     description: "Self-hosted Gitlab"

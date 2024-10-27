@@ -1,5 +1,5 @@
 services:
-  openvpn-client:
+  transmission-openvpn:
     image: haugene/transmission-openvpn
     container_name: transmission-openvpn
     cap_add:
@@ -24,13 +24,13 @@ services:
       - "net.ipv6.conf.all.disable_ipv6=0"  # This bypasses Docker weirdness with ipv6
     ports:  # map all svc you wanna route through VPN
       - 9091:9091 # Transmission Web UI
-      - 8191:8191 # Flaresolverr
-      - 9696:9696 # Prowlarr
+      # - 8191:8191 # Flaresolverr
+      # - 9696:9696 # Prowlarr
       - 8989:8989 # Sonarr
       - 7878:7878 # Radarr
-      - 6767:6767 # Bazarr
+      # - 6767:6767 # Bazarr
       - 5055:5055 # Jellyseerr
-      - 8787:8787 # Readarr Audiobooks
+      # - 8787:8787 # Readarr Audiobooks
     restart: unless-stopped
     networks:
       - homelab

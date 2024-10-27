@@ -12,8 +12,8 @@ services:
     volumes:
       - ${BASE_PATH}/config/calibre:/config
       - /data/media/books:/books
-    ports:
-      - 8083:8083
+    # ports:
+    #   - 8083:8083
     restart: unless-stopped
     networks:
       - homelab
@@ -56,19 +56,6 @@ services:
     networks:
       - homelab
 
-  jellystat-db:
-    container_name: jellystat-db
-    image: postgres:15.2
-    environment:
-      POSTGRES_DB: $POSTGRES_DB
-      POSTGRES_USER: $POSTGRES_USER
-      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
-    volumes:
-    - ${BASE_PATH}/config/postgres-data:/var/lib/postgresql/data
-    restart: unless-stopped
-    networks:
-      - homelab
-
   jellystat:
     container_name: jellystat
     image: cyfershepard/jellystat:latest
@@ -78,12 +65,25 @@ services:
       POSTGRES_IP: jellystat-db
       POSTGRES_PORT: 5432
       JWT_SECRET: $JWT_SECRET
-    ports:
-      - 3000:3000 #Server Port
+    # ports:
+    #   - 3000:3000 #Server Port
     volumes:
       - ${BASE_PATH}/config/jellystat:/app/backend/backup-data
     depends_on:
       - jellystat-db
+    restart: unless-stopped
+    networks:
+      - homelab
+
+  jellystat-db:
+    container_name: jellystat-db
+    image: postgres:15.2
+    environment:
+      POSTGRES_DB: $POSTGRES_DB
+      POSTGRES_USER: $POSTGRES_USER
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+    volumes:
+    - ${BASE_PATH}/config/jellystat-postgres-data:/var/lib/postgresql/data
     restart: unless-stopped
     networks:
       - homelab

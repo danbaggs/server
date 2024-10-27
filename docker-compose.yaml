@@ -4,7 +4,7 @@ include:
   - compose-files/servarr/compose.yaml
   - compose-files/media/compose.yaml
   - compose-files/tools/compose.yaml
-  # - compose-files/nginx-proxy-manager/compose.yaml
+  - compose-files/nginx-proxy-manager/compose.yaml
   # - compose-files/gitlab/compose.yaml
 
 services:
@@ -29,7 +29,7 @@ services:
       HOMEPAGE_VAR_NPM_PASSWORD: $NPM_PASSWORD
       HOMEPAGE_VAR_AUDIOBOOKSHELF_API_KEY: $AUDIOBOOKSHELF_API_KEY
     ports:
-      - 80:3000
+      - 8001:3000
     volumes:
       - ${BASE_PATH}/homepage/config:/app/config
       - ${BASE_PATH}/homepage/images:/app/public/images

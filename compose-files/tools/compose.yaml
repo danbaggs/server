@@ -3,8 +3,8 @@ services:
   stirling-pdf:
     container_name: stirling-pdf
     image: frooodle/s-pdf:latest
-    ports:
-      - 8080:8080
+    # ports:
+    #   - 8080:8080
     volumes:
       - ${BASE_PATH}/config/stirlingpdf/trainingData:/usr/share/tessdata #Required for extra OCR languages
       - ${BASE_PATH}/config/stirlingpdf/extraConfigs:/configs
@@ -28,8 +28,8 @@ services:
     volumes:
       - ${BASE_PATH}/config/nextcloud/config:/config
       - /data:/data
-    ports:
-      - 8443:443
+    # ports:
+    #   - 8443:443
     restart: unless-stopped
     networks:
       - homelab
