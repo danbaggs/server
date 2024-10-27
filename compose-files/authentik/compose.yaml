@@ -31,6 +31,8 @@ services:
       timeout: 3s
     command: --save 60 1 --loglevel warning
     restart: unless-stopped
+    networks:
+      - homelab
 
   authentik-server:
     image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2024.8.3}
@@ -52,6 +54,8 @@ services:
       - "${COMPOSE_PORT_HTTPS:-9443}:9443"
     command: server
     restart: unless-stopped
+    networks:
+      - homelab
 
   authentik-worker:
     image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2024.8.3}
@@ -79,3 +83,5 @@ services:
       - ./custom-templates:/templates
     command: worker
     restart: unless-stopped
+    networks:
+      - homelab
