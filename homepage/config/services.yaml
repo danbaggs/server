@@ -126,17 +126,17 @@
           url: https://portainer:9443
           env: 2
           key: {{HOMEPAGE_VAR_PORTAINER_API_KEY}}
-    - Nginx Proxy Manager:
-        icon: nginx-proxy-manager.png
-        description: "Reverse Proxy"
-        href: http://npm.baggs.io
-        server: dockerproxy
-        container: nginx-proxy-manager
-        widget:
-          type: npm
-          url: http://nginx-proxy-manager:81
-          username: {{HOMEPAGE_VAR_NPM_USERNAME}}
-          password: {{HOMEPAGE_VAR_NPM_PASSWORD}}
+    # - Nginx Proxy Manager:
+    #     icon: nginx-proxy-manager.png
+    #     description: "Reverse Proxy"
+    #     href: http://npm.baggs.io
+    #     server: dockerproxy
+    #     container: nginx-proxy-manager
+    #     widget:
+    #       type: npm
+    #       url: http://nginx-proxy-manager:81
+    #       username: {{HOMEPAGE_VAR_NPM_USERNAME}}
+    #       password: {{HOMEPAGE_VAR_NPM_PASSWORD}}
     - Pihole:
         icon: pi-hole.png
         description: "Network-wide Ad Blocking"
