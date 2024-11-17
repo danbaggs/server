@@ -3,17 +3,17 @@
 COMPOSE_FILE="docker-compose.yaml"
 
 cd /home/server/server/
-echo "=== Stopping tailscale ==="
-tailscale down --accept-risk=lose-ssh
-tailscale status
+#echo "=== Stopping tailscale ==="
+#tailscale down --accept-risk=lose-ssh
+#tailscale status
 echo "=== Stopping docker services ==="
 docker compose down
 echo "=== Waiting 1 second for networks to be released ==="
 sleep 1
 docker compose -f $COMPOSE_FILE up -d
-echo "=== Starting tailscale ==="
-tailscale up
-tailscale status
+#echo "=== Starting tailscale ==="
+#tailscale up
+#tailscale status
 
 # NETWORK_NAME="vpn-network"
 
