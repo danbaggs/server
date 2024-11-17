@@ -3,21 +3,30 @@ services:
   portainer:
     image: portainer/portainer-ce:latest
     container_name: portainer
-    # ports:
-    #   - 8000:8000
-    #   - 9443:9443
+    ports:
+      - 8000:8000
+      - 9443:9443
     restart: unless-stopped
     volumes:
       - "${BASE_PATH}/config/portainer:/data"
       - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
       - homelab
+  
+  autoheal:
+    container_name: autoheal
+    image: willfarrell/autoheal
+    environment:
+      - AUTOHEAL_CONTAINER_LABEL=autoheal
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
 
-  # watchtower:
-  #   container_name: watchtower
-  #   image: containrrr/watchtower
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #   restart: unless-stopped
-  #   networks:
-  #     - homelab
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    networks:
+      - homelab

@@ -14,6 +14,18 @@ services:
     volumes:
       - ${BASE_PATH}/config/jellyseerr/config:/app/config
     restart: unless-stopped
+    healthcheck:
+      # Verify that the transmission-openvpn container is running
+      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
+      interval: 30s
+      timeout: 2s
+      retries: 20
+    labels:
+      autoheal: true
+    entrypoint: ["sh", "-c"]  # Override entrypoint to run shell commands
+    command: >
+      "apk add --no-cache curl &&
+      /sbin/tini -- pnpm start"
 
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
@@ -28,6 +40,14 @@ services:
       PGID: 1000
       TZ: Etc/UTC
     restart: unless-stopped
+    healthcheck:
+      # Verify that the transmission-openvpn container is running
+      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
+      interval: 30s
+      timeout: 2s
+      retries: 20
+    labels:
+      autoheal: true
 
   flaresolverr:
     image: flaresolverr/flaresolverr:latest
@@ -40,6 +60,14 @@ services:
       PGID: 1000
       LOG_LEVEL: debug
     restart: unless-stopped
+    healthcheck:
+      # Verify that the transmission-openvpn container is running
+      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
+      interval: 30s
+      timeout: 2s
+      retries: 20
+    labels:
+      autoheal: true
 
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
@@ -55,6 +83,14 @@ services:
       - ${BASE_PATH}/config/sonarr/config:/config
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
+    healthcheck:
+      # Verify that the transmission-openvpn container is running
+      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
+      interval: 30s
+      timeout: 2s
+      retries: 20
+    labels:
+      autoheal: true
 
   radarr:
     image: lscr.io/linuxserver/radarr:latest
@@ -70,6 +106,14 @@ services:
       - ${BASE_PATH}/config/radarr/config:/config
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
+    healthcheck:
+      # Verify that the transmission-openvpn container is running
+      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
+      interval: 30s
+      timeout: 2s
+      retries: 20
+    labels:
+      autoheal: true
 
   bazarr:
     image: lscr.io/linuxserver/bazarr:latest
@@ -85,6 +129,14 @@ services:
       - ${BASE_PATH}/config/bazarr/config:/config
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
+    healthcheck:
+      # Verify that the transmission-openvpn container is running
+      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
+      interval: 30s
+      timeout: 2s
+      retries: 20
+    labels:
+      autoheal: true
 
   readarr-audiobooks:
     image: lscr.io/linuxserver/readarr:develop
@@ -100,3 +152,11 @@ services:
       - ${BASE_PATH}/config/readarr-audiobooks/config:/config
       - /data:/transcend  # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
+    healthcheck:
+      # Verify that the transmission-openvpn container is running
+      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
+      interval: 30s
+      timeout: 2s
+      retries: 20
+    labels:
+      autoheal: true

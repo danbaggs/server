@@ -35,4 +35,6 @@ services:
     restart: unless-stopped
     networks:
       - homelab
+    labels:
+      autoheal: true
 
