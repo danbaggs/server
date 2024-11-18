@@ -6,17 +6,17 @@
     - Jellyseerr:
         icon: jellyseerr.png
         description: "Media search"
-        href: http://asus:5055
+        href: http://192.168.1.180:5055
         server: dockerproxy
         container: jellyseerr
         widget:
           type: jellyseerr
-          url: http://transmission-openvpn:5055
+          url: http://jellyseerr:5055
           key: {{HOMEPAGE_VAR_JELLYSEERR_API_KEY}}
     - Jellyfin:
         icon: jellyfin.png
         description: "Media server"
-        href: http://asus:8096/
+        href: http://192.168.1.180:8096/
         server: dockerproxy
         container: jellyfin
         widget:
@@ -31,7 +31,7 @@
     - Audiobookshelf:
         icon: audiobookshelf.png
         description: "Audiobooks library"
-        href: http://asus:13378
+        href: http://192.168.1.180:13378
         server: dockerproxy
         container: audiobookshelf
         widget:
@@ -41,7 +41,7 @@
     - Calibre:
         icon: calibre.png
         description: "ebooks library"
-        href: http://calibre.baggs.io
+        href: http://192.168.1.180:8083
         server: dockerproxy
         container: calibre-web
         widget:
@@ -54,7 +54,7 @@
     - Transmission:
         icon: transmission.png
         description: "Torrent Download Client"
-        href: http://asus:9091
+        href: http://192.168.1.180:9091
         server: dockerproxy
         container: transmission-openvpn
         widget:
@@ -66,47 +66,47 @@
     - Sonarr:
         icon: sonarr.png
         description: "TV Shows Management"
-        href: http://asus:8989
+        href: http://192.168.1.180:8989
         server: dockerproxy
         container: sonarr
         widget:
           type: sonarr
-          url: http://transmission-openvpn:8989
+          url: http://sonarr:8989
           key: {{HOMEPAGE_VAR_SONARR_API_KEY}}
     - Radarr:
         icon: radarr.png
         description: "Movies Management"
-        href: http://asus:7878
+        href: http://192.168.1.180:7878
         server: dockerproxy
         container: radarr
         widget:
           type: radarr
-          url: http://transmission-openvpn:7878
+          url: http://radarr:7878
           key: {{HOMEPAGE_VAR_RADARR_API_KEY}}
     - Readarr Audiobooks:
         icon: readarr.png
         description: "Audiobook Management"
-        href: http://readarr.baggs.io
+        href: http://192.168.1.180:8787
         server: dockerproxy
         container: readarr-audiobooks
         widget:
           type: readarr
-          url: http://transmission-openvpn:8787
+          url: http://readarr-audiobooks:8787
           key: {{HOMEPAGE_VAR_READARR_API_KEY}}
     - Bazarr:
         icon: bazarr.png
         description: "Subtitles Management"
-        href: http://bazarr.baggs.io
+        href: http://192.168.1.180:6767
         server: dockerproxy
         container: bazarr
         widget:
           type: bazarr
-          url: http://transmission-openvpn:6767
+          url: http://bazarr:6767
           key: {{HOMEPAGE_VAR_BAZARR_API_KEY}}
     - Prowlarr:
         icon: prowlarr.png
         description: "Torrent Indexer Service"
-        href: http://prowlarr.baggs.io
+        href: http://192.168.1.180:9696
         server: dockerproxy
         container: prowlarr
         widget:
@@ -118,7 +118,7 @@
     - Portainer:
         icon: portainer.png
         description: "Docker Management UI"
-        href: https://portainer.baggs.io
+        href: https://192.168.1.180:9443
         server: dockerproxy
         container: portainer
         widget:
@@ -129,7 +129,7 @@
     # - Nginx Proxy Manager:
     #     icon: nginx-proxy-manager.png
     #     description: "Reverse Proxy"
-    #     href: http://npm.baggs.io
+    #     href: http://192.168.1.180:81
     #     server: dockerproxy
     #     container: nginx-proxy-manager
     #     widget:
@@ -140,7 +140,7 @@
     - Pihole:
         icon: pi-hole.png
         description: "Network-wide Ad Blocking"
-        href: http://pihole.humpback-ratio.ts.net/admin
+        href: http://192.168.1.146/admin
         widget:
           type: pihole
           url: http://192.168.1.146
@@ -150,25 +150,25 @@
     - Stirling PDF:
         icon: stirling-pdf.png
         description: "PDF Tools"
-        href: http://stirling-pdf.baggs.io
+        href: http://192.168.1.180:8080
         server: dockerproxy
         container: stirling-pdf
     - Nextcloud:
         icon: nextcloud.png
         description: "File Sync and Share"
-        href: https://nextcloud.baggs.io
+        href: https://192.168.1.180:8443
         server: dockerproxy
         container: nextcloud
     - Jellystat:
         icon: jellystat.png
         description: "Jellyfin Statistics"
-        href: http://jellystat.baggs.io
+        href: http://192.168.1.180:3000
         server: dockerproxy
         container: jellystat
     # - Gitlab:
     #     icon: gitlab.png
     #     description: "Self-hosted Gitlab"
-    #     href: http://asus:8929
+    #     href: http://192.168.1.180:8929
     #     server: dockerproxy
     #     container: gitlab
     # - Gitlab Runner:

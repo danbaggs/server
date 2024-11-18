@@ -64,8 +64,8 @@ services:
       POSTGRES_IP: jellystat-db
       POSTGRES_PORT: 5432
       JWT_SECRET: $JWT_SECRET
-    # ports:
-    #   - 3000:3000 #Server Port
+    ports:
+      - 3000:3000 #Server Port
     volumes:
       - ${BASE_PATH}/config/jellystat:/app/backend/backup-data
     depends_on:

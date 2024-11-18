@@ -8,7 +8,7 @@ services:
       TS_AUTHKEY: $TAILSCALE_CLIENT_SECRET
       TS_EXTRA_ARGS: --advertise-tags=tag:container
       TS_STATE_DIR: /var/lib/tailscale
-      TS_SERVE_CONFIG: /config/ts_serve.json
+      # TS_SERVE_CONFIG: /config/ts_serve.json
     volumes:
       - ${BASE_PATH}/config/tailscale/state:/var/lib/tailscale
       - ${BASE_PATH}/config/tailscale/config:/config

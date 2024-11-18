@@ -5,18 +5,22 @@ services:
     container_name: jellyseerr
     depends_on:
       - transmission-openvpn
-    network_mode: "service:transmission-openvpn"
+    # network_mode: "service:transmission-openvpn"
     environment:
       PUID: 1000
       PGID: 1000
       LOG_LEVEL: debug
       TZ: Etc/UTC
+    ports:
+      - 5055:5055
     volumes:
       - ${BASE_PATH}/config/jellyseerr/config:/app/config
     restart: unless-stopped
+    networks:
+      - homelab
     healthcheck:
       # Verify that the transmission-openvpn container is running
-      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
+      test: ["CMD", "curl", "-f", "http://transmission-openvpn:9091"] 
       interval: 30s
       timeout: 2s
       retries: 20
@@ -74,18 +78,22 @@ services:
     container_name: sonarr
     depends_on:
       - transmission-openvpn
-    network_mode: "service:transmission-openvpn"
+    # network_mode: "service:transmission-openvpn"
     environment:
       PUID: 1000
       PGID: 1000
       TZ: Etc/UTC
+    ports:
+      - 8989:8989
     volumes:
       - ${BASE_PATH}/config/sonarr/config:/config
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
+    networks:
+      - homelab
     healthcheck:
       # Verify that the transmission-openvpn container is running
-      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
+      test: ["CMD", "curl", "-f", "http://transmission-openvpn:9091"] 
       interval: 30s
       timeout: 2s
       retries: 20
@@ -97,18 +105,22 @@ services:
     container_name: radarr
     depends_on:
       - transmission-openvpn
-    network_mode: "service:transmission-openvpn"
+    # network_mode: "service:transmission-openvpn"
     environment:
       PUID: 1000
       PGID: 1000
       TZ: Etc/UTC
+    ports:
+      - 7878:7878
     volumes:
       - ${BASE_PATH}/config/radarr/config:/config
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
+    networks:
+      - homelab
     healthcheck:
       # Verify that the transmission-openvpn container is running
-      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
+      test: ["CMD", "curl", "-f", "http://transmission-openvpn:9091"] 
       interval: 30s
       timeout: 2s
       retries: 20
@@ -120,18 +132,22 @@ services:
     container_name: bazarr
     depends_on:
       - transmission-openvpn
-    network_mode: "service:transmission-openvpn"
+    # network_mode: "service:transmission-openvpn"
     environment:
       PUID: 1000
       PGID: 1000
       TZ: Etc/UTC
+    ports:
+      - 6767:6767
     volumes:
       - ${BASE_PATH}/config/bazarr/config:/config
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
+    networks:
+      - homelab
     healthcheck:
       # Verify that the transmission-openvpn container is running
-      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
+      test: ["CMD", "curl", "-f", "http://transmission-openvpn:9091"] 
       interval: 30s
       timeout: 2s
       retries: 20
@@ -143,18 +159,22 @@ services:
     container_name: readarr-audiobooks
     depends_on:
       - transmission-openvpn
-    network_mode: "service:transmission-openvpn"
+    # network_mode: "service:transmission-openvpn"
     environment:
       PUID: 1000
       PGID: 1000
       TZ: Etc/UTC
+    ports:
+      - 8787:8787
     volumes:
       - ${BASE_PATH}/config/readarr-audiobooks/config:/config
       - /data:/transcend  # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
+    networks:
+      - homelab
     healthcheck:
       # Verify that the transmission-openvpn container is running
-      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
+      test: ["CMD", "curl", "-f", "http://transmission-openvpn:9091"] 
       interval: 30s
       timeout: 2s
       retries: 20
