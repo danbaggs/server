@@ -12,8 +12,8 @@ services:
     volumes:
       - ${BASE_PATH}/config/calibre:/config
       - /data/media/books:/books
-    # ports:
-    #   - 8083:8083
+    ports:
+      - 8083:8083
     restart: unless-stopped
     networks:
       - homelab
