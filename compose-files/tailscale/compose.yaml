@@ -3,12 +3,18 @@ services:
   tailscale:
     image: tailscale/tailscale:latest
     container_name: tailscale
-    hostname: tailscale
+    hostname: ts-npm # Tailscale admin console machine name
     environment:
       TS_AUTHKEY: $TAILSCALE_CLIENT_SECRET
       TS_EXTRA_ARGS: --advertise-tags=tag:container
       TS_STATE_DIR: /var/lib/tailscale
       # TS_SERVE_CONFIG: /config/ts_serve.json
+    labels:
+      com.centurylinklabs.watchtower.enable: false
+    ports:
+      - 80:80
+      - 81:81
+      - 443:443
     volumes:
       - ${BASE_PATH}/config/tailscale/state:/var/lib/tailscale
       - ${BASE_PATH}/config/tailscale/config:/config

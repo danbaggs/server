@@ -2,17 +2,72 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/bookmarks
 
-# - Developer:
-#     - Github:
-#         - abbr: GH
-#           href: https://github.com/
-
-# - Social:
-#     - Reddit:
-#         - abbr: RE
-#           href: https://reddit.com/
-
-# - Entertainment:
-#     - YouTube:
-#         - abbr: YT
-#           href: https://youtube.com/
+- Tailscale Bookmarks:
+    - Jellyseerr:
+        - icon: jellyseerr.png
+          description: "Media search"
+          href: https://jellyseerr.baggs.io
+    - Jellyfin:
+        - icon: jellyfin.png
+          description: "Media server"
+          href: https://jellyfin.baggs.io
+    - Audiobookshelf:
+        - icon: audiobookshelf.png
+          description: "Audiobooks library"
+          href: https://audiobookshelf.baggs.io
+    - Calibre:
+        - icon: calibre.png
+          description: "ebooks library"
+          href: https://calibre.baggs.io
+    - Transmission:
+        - icon: transmission.png
+          description: "Torrent Download Client"
+          href: https://transmission.baggs.io
+    - Sonarr:
+        - icon: sonarr.png
+          description: "TV Shows Management"
+          href: https://sonarr.baggs.io
+    - Radarr:
+        - icon: radarr.png
+          description: "Movies Management"
+          href: https://radarr.baggs.io
+    - Readarr Audiobooks:
+        - icon: readarr.png
+          description: "Audiobook Management"
+          href: https://readarr.baggs.io
+    - Bazarr:
+        - icon: bazarr.png
+          description: "Subtitles Management"
+          href: https://bazarr.baggs.io
+    - Prowlarr:
+        - icon: prowlarr.png
+          description: "Torrent Indexer Service"
+          href: https://prowlarr.baggs.io
+    - Portainer:
+        - icon: portainer.png
+          description: "Docker Management UI"
+          href: https://portainer.baggs.io
+    - Nginx Proxy Manager:
+        - icon: nginx-proxy-manager.png
+          description: "Reverse Proxy"
+          href: https://npm.baggs.io
+    - Pihole:
+        - icon: pi-hole.png
+          description: "Network-wide Ad Blocking"
+          href: http://192.168.1.146/admin
+    - Stirling PDF:
+        - icon: stirling-pdf.png
+          description: "PDF Tools"
+          href: https://stirling-pdf.baggs.io
+    - Nextcloud:
+        - icon: nextcloud.png
+          description: "File Sync and Share"
+          href: https://nextcloud.baggs.io
+    - Jellystat:
+        - icon: jellystat.png
+          description: "Jellyfin Statistics"
+          href: https://jellystat.baggs.io
+  # - Gitlab:
+  #     - icon: gitlab.png
+  #       description: "Self-hosted Gitlab"
+  #       href: http://192.168.1.180:8929

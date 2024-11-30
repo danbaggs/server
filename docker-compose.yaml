@@ -4,8 +4,8 @@ include:
   - compose-files/servarr/compose.yaml
   - compose-files/media/compose.yaml
   - compose-files/tools/compose.yaml
-  # - compose-files/nginx-proxy-manager/compose.yaml
-  # - compose-files/tailscale/compose.yaml
+  - compose-files/nginx-proxy-manager/compose.yaml
+  - compose-files/tailscale/compose.yaml
   # - compose-files/authentik/compose.yaml
   # - compose-files/gitlab/compose.yaml
 
@@ -39,6 +39,8 @@ services:
     restart: unless-stopped
     networks:
       - homelab
+    labels:
+      tsdproxy.enable: true
 
   dockerproxy:
     image: ghcr.io/tecnativa/docker-socket-proxy:latest

@@ -115,28 +115,6 @@
           key: {{HOMEPAGE_VAR_PROWLARR_API_KEY}}
 
 - Tools:
-    - Portainer:
-        icon: portainer.png
-        description: "Docker Management UI"
-        href: https://192.168.1.180:9443
-        server: dockerproxy
-        container: portainer
-        widget:
-          type: portainer
-          url: https://portainer:9443
-          env: 2
-          key: {{HOMEPAGE_VAR_PORTAINER_API_KEY}}
-    # - Nginx Proxy Manager:
-    #     icon: nginx-proxy-manager.png
-    #     description: "Reverse Proxy"
-    #     href: http://192.168.1.180:81
-    #     server: dockerproxy
-    #     container: nginx-proxy-manager
-    #     widget:
-    #       type: npm
-    #       url: http://nginx-proxy-manager:81
-    #       username: {{HOMEPAGE_VAR_NPM_USERNAME}}
-    #       password: {{HOMEPAGE_VAR_NPM_PASSWORD}}
     - Pihole:
         icon: pi-hole.png
         description: "Network-wide Ad Blocking"
@@ -165,6 +143,28 @@
         href: http://192.168.1.180:3000
         server: dockerproxy
         container: jellystat
+    - Portainer:
+        icon: portainer.png
+        description: "Docker Management UI"
+        href: https://192.168.1.180:9443
+        server: dockerproxy
+        container: portainer
+        widget:
+          type: portainer
+          url: https://portainer:9443
+          env: 2
+          key: {{HOMEPAGE_VAR_PORTAINER_API_KEY}}
+    - Nginx Proxy Manager:
+        icon: nginx-proxy-manager.png
+        description: "Reverse Proxy"
+        href: http://192.168.1.180:81
+        server: dockerproxy
+        container: nginx-proxy-manager
+        widget:
+          type: npm
+          url: http://ts-npm:81
+          username: {{HOMEPAGE_VAR_NPM_USERNAME}}
+          password: {{HOMEPAGE_VAR_NPM_PASSWORD}}
     # - Gitlab:
     #     icon: gitlab.png
     #     description: "Self-hosted Gitlab"

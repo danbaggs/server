@@ -17,6 +17,8 @@ services:
     restart: unless-stopped
     networks:
       - homelab
+    labels:
+      tsdproxy.enable: true
 
   nextcloud:
     image: lscr.io/linuxserver/nextcloud:latest
@@ -33,3 +35,5 @@ services:
     restart: unless-stopped
     networks:
       - homelab
+    labels:
+      tsdproxy.enable: true

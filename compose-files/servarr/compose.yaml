@@ -5,7 +5,6 @@ services:
     container_name: jellyseerr
     depends_on:
       - transmission-openvpn
-    # network_mode: "service:transmission-openvpn"
     environment:
       PUID: 1000
       PGID: 1000
@@ -26,6 +25,7 @@ services:
       retries: 20
     labels:
       autoheal: true
+      tsdproxy.enable: true
     entrypoint: ["sh", "-c"]  # Override entrypoint to run shell commands
     command: >
       "apk add --no-cache curl &&
@@ -36,7 +36,6 @@ services:
     container_name: prowlarr
     depends_on:
       - transmission-openvpn
-    network_mode: "service:transmission-openvpn"
     volumes:
       - ${BASE_PATH}/config/prowlarr/config:/config
     environment:
@@ -50,6 +49,7 @@ services:
       interval: 30s
       timeout: 2s
       retries: 20
+    network_mode: "service:transmission-openvpn"
     labels:
       autoheal: true
 
@@ -58,7 +58,6 @@ services:
     container_name: flaresolverr
     depends_on:
       - transmission-openvpn
-    network_mode: "service:transmission-openvpn"
     environment:
       PUID: 1000
       PGID: 1000
@@ -70,6 +69,7 @@ services:
       interval: 30s
       timeout: 2s
       retries: 20
+    network_mode: "service:transmission-openvpn"
     labels:
       autoheal: true
 
@@ -78,7 +78,6 @@ services:
     container_name: sonarr
     depends_on:
       - transmission-openvpn
-    # network_mode: "service:transmission-openvpn"
     environment:
       PUID: 1000
       PGID: 1000
@@ -99,13 +98,13 @@ services:
       retries: 20
     labels:
       autoheal: true
+      tsdproxy.enable: true
 
   radarr:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
     depends_on:
       - transmission-openvpn
-    # network_mode: "service:transmission-openvpn"
     environment:
       PUID: 1000
       PGID: 1000
@@ -126,13 +125,13 @@ services:
       retries: 20
     labels:
       autoheal: true
+      tsdproxy.enable: true
 
   bazarr:
     image: lscr.io/linuxserver/bazarr:latest
     container_name: bazarr
     depends_on:
       - transmission-openvpn
-    # network_mode: "service:transmission-openvpn"
     environment:
       PUID: 1000
       PGID: 1000
@@ -153,13 +152,13 @@ services:
       retries: 20
     labels:
       autoheal: true
+      tsdproxy.enable: true
 
   readarr-audiobooks:
     image: lscr.io/linuxserver/readarr:develop
     container_name: readarr-audiobooks
     depends_on:
       - transmission-openvpn
-    # network_mode: "service:transmission-openvpn"
     environment:
       PUID: 1000
       PGID: 1000
@@ -180,3 +179,4 @@ services:
       retries: 20
     labels:
       autoheal: true
+      tsdproxy.enable: true

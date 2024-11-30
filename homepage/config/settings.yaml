@@ -29,4 +29,8 @@ layout:
   Tools:
     style: row
     columns: 4
-    icon: mealie.png
+    icon: it-tools-light.png
+  Tailscale Bookmarks:
+    icon: tailscale-light.png
+    style: row
+    columns: 4

@@ -27,14 +27,11 @@ services:
       - 9091:9091 # Transmission Web UI
       - 8191:8191 # Flaresolverr
       - 9696:9696 # Prowlarr
-      # - 8989:8989 # Sonarr
-      # - 7878:7878 # Radarr
-      # - 6767:6767 # Bazarr
-      # - 5055:5055 # Jellyseerr
-      # - 8787:8787 # Readarr Audiobooks
     restart: unless-stopped
     networks:
       - homelab
     labels:
       autoheal: true
+      tsdproxy.enable: true
+      tsdproxy.container_port: 9091
 
