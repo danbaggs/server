@@ -54,7 +54,7 @@
     - Pihole:
         - icon: pi-hole.png
           description: "Network-wide Ad Blocking"
-          href: http://192.168.1.146/admin
+          href: http://pihole.humpback-ratio.ts.net/admin
     - Stirling PDF:
         - icon: stirling-pdf.png
           description: "PDF Tools"
