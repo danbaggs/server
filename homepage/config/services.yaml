@@ -71,7 +71,7 @@
         container: sonarr
         widget:
           type: sonarr
-          url: http://sonarr:8989
+          url: http://transmission-openvpn:8989
           key: {{HOMEPAGE_VAR_SONARR_API_KEY}}
     - Radarr:
         icon: radarr.png
@@ -81,7 +81,7 @@
         container: radarr
         widget:
           type: radarr
-          url: http://radarr:7878
+          url: http://transmission-openvpn:7878
           key: {{HOMEPAGE_VAR_RADARR_API_KEY}}
     - Readarr Audiobooks:
         icon: readarr.png
@@ -91,7 +91,7 @@
         container: readarr-audiobooks
         widget:
           type: readarr
-          url: http://readarr-audiobooks:8787
+          url: http://transmission-openvpn:8787
           key: {{HOMEPAGE_VAR_READARR_API_KEY}}
     - Bazarr:
         icon: bazarr.png
@@ -101,7 +101,7 @@
         container: bazarr
         widget:
           type: bazarr
-          url: http://bazarr:6767
+          url: http://transmission-openvpn:6767
           key: {{HOMEPAGE_VAR_BAZARR_API_KEY}}
     - Prowlarr:
         icon: prowlarr.png

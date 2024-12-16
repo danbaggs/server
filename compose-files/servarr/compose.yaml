@@ -82,17 +82,16 @@ services:
       PUID: 1000
       PGID: 1000
       TZ: Etc/UTC
-    ports:
-      - 8989:8989
+    # ports:
+    #   - 8989:8989
     volumes:
       - ${BASE_PATH}/config/sonarr/config:/config
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
-    networks:
-      - homelab
+    network_mode: "service:transmission-openvpn"
     healthcheck:
       # Verify that the transmission-openvpn container is running
-      test: ["CMD", "curl", "-f", "http://transmission-openvpn:9091"] 
+      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
       interval: 30s
       timeout: 2s
       retries: 20
@@ -109,17 +108,16 @@ services:
       PUID: 1000
       PGID: 1000
       TZ: Etc/UTC
-    ports:
-      - 7878:7878
+    # ports:
+    #   - 7878:7878
     volumes:
       - ${BASE_PATH}/config/radarr/config:/config
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
-    networks:
-      - homelab
+    network_mode: "service:transmission-openvpn"
     healthcheck:
       # Verify that the transmission-openvpn container is running
-      test: ["CMD", "curl", "-f", "http://transmission-openvpn:9091"] 
+      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
       interval: 30s
       timeout: 2s
       retries: 20
@@ -136,17 +134,16 @@ services:
       PUID: 1000
       PGID: 1000
       TZ: Etc/UTC
-    ports:
-      - 6767:6767
+    # ports:
+    #   - 6767:6767
     volumes:
       - ${BASE_PATH}/config/bazarr/config:/config
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
-    networks:
-      - homelab
+    network_mode: "service:transmission-openvpn"
     healthcheck:
       # Verify that the transmission-openvpn container is running
-      test: ["CMD", "curl", "-f", "http://transmission-openvpn:9091"] 
+      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
       interval: 30s
       timeout: 2s
       retries: 20
@@ -163,17 +160,16 @@ services:
       PUID: 1000
       PGID: 1000
       TZ: Etc/UTC
-    ports:
-      - 8787:8787
+    # ports:
+    #   - 8787:8787
     volumes:
       - ${BASE_PATH}/config/readarr-audiobooks/config:/config
       - /data:/transcend  # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
-    networks:
-      - homelab
+    network_mode: "service:transmission-openvpn"
     healthcheck:
       # Verify that the transmission-openvpn container is running
-      test: ["CMD", "curl", "-f", "http://transmission-openvpn:9091"] 
+      test: ["CMD", "curl", "-f", "http://localhost:9091"] 
       interval: 30s
       timeout: 2s
       retries: 20
