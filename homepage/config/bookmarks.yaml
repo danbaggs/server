@@ -6,51 +6,51 @@
     - Jellyseerr:
         - icon: jellyseerr.png
           description: "Media search"
-          href: https://jellyseerr.baggs.io
+          href: https://jellyseerr.{{HOMEPAGE_VAR_URL}}
     - Jellyfin:
         - icon: jellyfin.png
           description: "Media server"
-          href: https://jellyfin.baggs.io
+          href: https://jellyfin.{{HOMEPAGE_VAR_URL}}
     - Audiobookshelf:
         - icon: audiobookshelf.png
           description: "Audiobooks library"
-          href: https://audiobookshelf.baggs.io
+          href: https://audiobookshelf.{{HOMEPAGE_VAR_URL}}
     - Calibre:
         - icon: calibre.png
           description: "ebooks library"
-          href: https://calibre.baggs.io
+          href: https://calibre.{{HOMEPAGE_VAR_URL}}
     - Transmission:
         - icon: transmission.png
           description: "Torrent Download Client"
-          href: https://transmission.baggs.io
+          href: https://transmission.{{HOMEPAGE_VAR_URL}}
     - Sonarr:
         - icon: sonarr.png
           description: "TV Shows Management"
-          href: https://sonarr.baggs.io
+          href: https://sonarr.{{HOMEPAGE_VAR_URL}}
     - Radarr:
         - icon: radarr.png
           description: "Movies Management"
-          href: https://radarr.baggs.io
+          href: https://radarr.{{HOMEPAGE_VAR_URL}}
     - Readarr Audiobooks:
         - icon: readarr.png
           description: "Audiobook Management"
-          href: https://readarr.baggs.io
+          href: https://readarr.{{HOMEPAGE_VAR_URL}}
     - Bazarr:
         - icon: bazarr.png
           description: "Subtitles Management"
-          href: https://bazarr.baggs.io
+          href: https://bazarr.{{HOMEPAGE_VAR_URL}}
     - Prowlarr:
         - icon: prowlarr.png
           description: "Torrent Indexer Service"
-          href: https://prowlarr.baggs.io
+          href: https://prowlarr.{{HOMEPAGE_VAR_URL}}
     - Portainer:
         - icon: portainer.png
           description: "Docker Management UI"
-          href: https://portainer.baggs.io
+          href: https://portainer.{{HOMEPAGE_VAR_URL}}
     - Nginx Proxy Manager:
         - icon: nginx-proxy-manager.png
           description: "Reverse Proxy"
-          href: https://npm.baggs.io
+          href: https://npm.{{HOMEPAGE_VAR_URL}}
     - Pihole:
         - icon: pi-hole.png
           description: "Network-wide Ad Blocking"
@@ -58,15 +58,15 @@
     - Stirling PDF:
         - icon: stirling-pdf.png
           description: "PDF Tools"
-          href: https://stirling-pdf.baggs.io
+          href: https://stirling-pdf.{{HOMEPAGE_VAR_URL}}
     - Nextcloud:
         - icon: nextcloud.png
           description: "File Sync and Share"
-          href: https://nextcloud.baggs.io
+          href: https://nextcloud.{{HOMEPAGE_VAR_URL}}
     - Jellystat:
         - icon: jellystat.png
           description: "Jellyfin Statistics"
-          href: https://jellystat.baggs.io
+          href: https://jellystat.{{HOMEPAGE_VAR_URL}}
   # - Gitlab:
   #     - icon: gitlab.png
   #       description: "Self-hosted Gitlab"
