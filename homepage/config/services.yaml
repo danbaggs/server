@@ -6,7 +6,7 @@
     - Jellyseerr:
         icon: jellyseerr.png
         description: "Media search"
-        href: http://192.168.1.180:5055
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:5055
         server: dockerproxy
         container: jellyseerr
         widget:
@@ -16,7 +16,7 @@
     - Jellyfin:
         icon: jellyfin.png
         description: "Media server"
-        href: http://192.168.1.180:8096/
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:8096/
         server: dockerproxy
         container: jellyfin
         widget:
@@ -31,7 +31,7 @@
     - Audiobookshelf:
         icon: audiobookshelf.png
         description: "Audiobooks library"
-        href: http://192.168.1.180:13378
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:13378
         server: dockerproxy
         container: audiobookshelf
         widget:
@@ -41,7 +41,7 @@
     - Calibre:
         icon: calibre.png
         description: "ebooks library"
-        href: http://192.168.1.180:8083
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:8083
         server: dockerproxy
         container: calibre-web
         widget:
@@ -54,7 +54,7 @@
     - Transmission:
         icon: transmission.png
         description: "Torrent Download Client"
-        href: http://192.168.1.180:9091
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:9091
         server: dockerproxy
         container: transmission-openvpn
         widget:
@@ -66,7 +66,7 @@
     - Sonarr:
         icon: sonarr.png
         description: "TV Shows Management"
-        href: http://192.168.1.180:8989
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:8989
         server: dockerproxy
         container: sonarr
         widget:
@@ -76,7 +76,7 @@
     - Radarr:
         icon: radarr.png
         description: "Movies Management"
-        href: http://192.168.1.180:7878
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:7878
         server: dockerproxy
         container: radarr
         widget:
@@ -86,7 +86,7 @@
     - Readarr Audiobooks:
         icon: readarr.png
         description: "Audiobook Management"
-        href: http://192.168.1.180:8787
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:8787
         server: dockerproxy
         container: readarr-audiobooks
         widget:
@@ -96,7 +96,7 @@
     - Bazarr:
         icon: bazarr.png
         description: "Subtitles Management"
-        href: http://192.168.1.180:6767
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:6767
         server: dockerproxy
         container: bazarr
         widget:
@@ -106,7 +106,7 @@
     - Prowlarr:
         icon: prowlarr.png
         description: "Torrent Indexer Service"
-        href: http://192.168.1.180:9696
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:9696
         server: dockerproxy
         container: prowlarr
         widget:
@@ -128,25 +128,25 @@
     - Stirling PDF:
         icon: stirling-pdf.png
         description: "PDF Tools"
-        href: http://192.168.1.180:8080
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:8080
         server: dockerproxy
         container: stirling-pdf
     - Nextcloud:
         icon: nextcloud.png
         description: "File Sync and Share"
-        href: https://192.168.1.180:8443
+        href: https://{{HOMEPAGE_VAR_HOST_IP}}:8443
         server: dockerproxy
         container: nextcloud
     - Jellystat:
         icon: jellystat.png
         description: "Jellyfin Statistics"
-        href: http://192.168.1.180:3000
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:3000
         server: dockerproxy
         container: jellystat
     - Portainer:
         icon: portainer.png
         description: "Docker Management UI"
-        href: https://192.168.1.180:9443
+        href: https://{{HOMEPAGE_VAR_HOST_IP}}:9443
         server: dockerproxy
         container: portainer
         widget:
@@ -157,7 +157,7 @@
     - Nginx Proxy Manager:
         icon: nginx-proxy-manager.png
         description: "Reverse Proxy"
-        href: http://192.168.1.180:81
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:81
         server: dockerproxy
         container: nginx-proxy-manager
         widget:
@@ -168,7 +168,7 @@
     # - Gitlab:
     #     icon: gitlab.png
     #     description: "Self-hosted Gitlab"
-    #     href: http://192.168.1.180:8929
+    #     href: http://{{HOMEPAGE_VAR_HOST_IP}}:8929
     #     server: dockerproxy
     #     container: gitlab
     # - Gitlab Runner:

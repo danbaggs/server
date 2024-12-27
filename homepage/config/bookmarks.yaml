@@ -70,4 +70,4 @@
   # - Gitlab:
   #     - icon: gitlab.png
   #       description: "Self-hosted Gitlab"
-  #       href: http://192.168.1.180:8929
+  #       href: http://{{HOMEPAGE_VAR_HOST_IP}}:8929
