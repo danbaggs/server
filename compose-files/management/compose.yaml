@@ -12,9 +12,6 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
       - homelab
-    labels:
-      tsdproxy.enable: true
-      tsdproxy.container_port: 9443
   
   autoheal:
     container_name: autoheal
