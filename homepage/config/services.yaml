@@ -124,7 +124,6 @@
           url: http://192.168.1.146
           version: 5
           key: 75453985081310106115b7de40dd98e87d0ef5dd550cc99f361b8161d4454104
-
     - Stirling PDF:
         icon: stirling-pdf.png
         description: "PDF Tools"
@@ -143,6 +142,12 @@
         href: http://{{HOMEPAGE_VAR_HOST_IP}}:3000
         server: dockerproxy
         container: jellystat
+    - Beszel:
+        icon: beszel.png
+        description: "Container Monitoring"
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:8090/system/Asus
+        server: dockerproxy
+        container: beszel
     - Portainer:
         icon: portainer.png
         description: "Docker Management UI"

@@ -67,6 +67,10 @@
         - icon: jellystat.png
           description: "Jellyfin Statistics"
           href: https://jellystat.{{HOMEPAGE_VAR_URL}}
+    - Beszel:
+        - icon: beszel.png
+          description: "Container Monitoring"
+          href: https://beszel.{{HOMEPAGE_VAR_URL}}
   # - Gitlab:
   #     - icon: gitlab.png
   #       description: "Self-hosted Gitlab"
