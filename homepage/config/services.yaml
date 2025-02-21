@@ -122,8 +122,8 @@
         widget:
           type: pihole
           url: http://192.168.1.146
-          version: 5
-          key: 75453985081310106115b7de40dd98e87d0ef5dd550cc99f361b8161d4454104
+          version: 6
+          key: {{HOMEPAGE_PIHOLE_PASSWORD}}
     - Stirling PDF:
         icon: stirling-pdf.png
         description: "PDF Tools"
