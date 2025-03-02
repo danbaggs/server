@@ -17,8 +17,6 @@ services:
     restart: unless-stopped
     networks:
       - homelab
-    labels:
-      tsdproxy.enable: true
 
   audiobookshelf:
     image: ghcr.io/advplyr/audiobookshelf:latest
@@ -34,8 +32,6 @@ services:
     restart: unless-stopped
     networks:
       - homelab
-    labels:
-      tsdproxy.enable: true
 
   jellyfin:
     image: jellyfin/jellyfin:latest
@@ -58,8 +54,6 @@ services:
       - "host.docker.internal:host-gateway"
     networks:
       - homelab
-    labels:
-      tsdproxy.enable: true
 
   jellystat:
     container_name: jellystat
@@ -79,8 +73,6 @@ services:
     restart: unless-stopped
     networks:
       - homelab
-    labels:
-      tsdproxy.enable: true
 
   jellystat-db:
     container_name: jellystat-db

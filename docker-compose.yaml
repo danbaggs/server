@@ -43,8 +43,6 @@ services:
     restart: unless-stopped
     networks:
       - homelab
-    labels:
-      tsdproxy.enable: true
 
   dockerproxy:
     image: ghcr.io/tecnativa/docker-socket-proxy:latest

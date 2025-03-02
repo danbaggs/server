@@ -25,7 +25,6 @@ services:
       retries: 20
     labels:
       autoheal: true
-      tsdproxy.enable: true
     entrypoint: ["sh", "-c"]  # Override entrypoint to run shell commands
     command: >
       "apk add --no-cache curl &&
@@ -97,7 +96,6 @@ services:
       retries: 20
     labels:
       autoheal: true
-      tsdproxy.enable: true
 
   radarr:
     image: lscr.io/linuxserver/radarr:latest
@@ -123,7 +121,6 @@ services:
       retries: 20
     labels:
       autoheal: true
-      tsdproxy.enable: true
 
   bazarr:
     image: lscr.io/linuxserver/bazarr:latest
@@ -149,7 +146,6 @@ services:
       retries: 20
     labels:
       autoheal: true
-      tsdproxy.enable: true
 
   readarr-audiobooks:
     image: lscr.io/linuxserver/readarr:develop
@@ -175,4 +171,3 @@ services:
       retries: 20
     labels:
       autoheal: true
-      tsdproxy.enable: true
