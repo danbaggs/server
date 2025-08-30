@@ -1,75 +1,74 @@
 ---
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/bookmarks
-
 - Tailscale Bookmarks:
     - Jellyseerr:
         - icon: jellyseerr.png
-          description: "Media search"
+          description: Media search
           href: https://jellyseerr.{{HOMEPAGE_VAR_URL}}
     - Jellyfin:
         - icon: jellyfin.png
-          description: "Media server"
+          description: Media server
           href: https://jellyfin.{{HOMEPAGE_VAR_URL}}
     - Audiobookshelf:
         - icon: audiobookshelf.png
-          description: "Audiobooks library"
+          description: Audiobooks library
           href: https://audiobookshelf.{{HOMEPAGE_VAR_URL}}
     - Calibre:
         - icon: calibre.png
-          description: "ebooks library"
+          description: ebooks library
           href: https://calibre.{{HOMEPAGE_VAR_URL}}
     - Transmission:
         - icon: transmission.png
-          description: "Torrent Download Client"
+          description: Torrent Download Client
           href: https://transmission.{{HOMEPAGE_VAR_URL}}
     - Sonarr:
         - icon: sonarr.png
-          description: "TV Shows Management"
+          description: TV Shows Management
           href: https://sonarr.{{HOMEPAGE_VAR_URL}}
     - Radarr:
         - icon: radarr.png
-          description: "Movies Management"
+          description: Movies Management
           href: https://radarr.{{HOMEPAGE_VAR_URL}}
-    - Readarr Audiobooks:
+    - Readarr:
         - icon: readarr.png
-          description: "Audiobook Management"
+          description: Audiobook Management
           href: https://readarr.{{HOMEPAGE_VAR_URL}}
     - Bazarr:
         - icon: bazarr.png
-          description: "Subtitles Management"
+          description: Subtitles Management
           href: https://bazarr.{{HOMEPAGE_VAR_URL}}
     - Prowlarr:
         - icon: prowlarr.png
-          description: "Torrent Indexer Service"
+          description: Torrent Indexer Service
           href: https://prowlarr.{{HOMEPAGE_VAR_URL}}
     - Portainer:
         - icon: portainer.png
-          description: "Docker Management UI"
+          description: Docker Management UI
           href: https://portainer.{{HOMEPAGE_VAR_URL}}
     - Nginx Proxy Manager:
         - icon: nginx-proxy-manager.png
-          description: "Reverse Proxy"
+          description: Reverse Proxy
           href: https://npm.{{HOMEPAGE_VAR_URL}}
     - Pihole:
         - icon: pi-hole.png
-          description: "Network-wide Ad Blocking"
+          description: Network-wide Ad Blocking
           href: http://pihole.humpback-ratio.ts.net/admin
     - Stirling PDF:
         - icon: stirling-pdf.png
-          description: "PDF Tools"
+          description: PDF Tools
           href: https://stirling-pdf.{{HOMEPAGE_VAR_URL}}
     - Nextcloud:
         - icon: nextcloud.png
-          description: "File Sync and Share"
+          description: File Sync and Share
           href: https://nextcloud.{{HOMEPAGE_VAR_URL}}
     - Jellystat:
         - icon: jellystat.png
-          description: "Jellyfin Statistics"
+          description: Jellyfin Statistics
           href: https://jellystat.{{HOMEPAGE_VAR_URL}}
     - Beszel:
         - icon: beszel.png
-          description: "Container Monitoring"
+          description: Container Monitoring
           href: https://beszel.{{HOMEPAGE_VAR_URL}}
   # - Gitlab:
   #     - icon: gitlab.png
