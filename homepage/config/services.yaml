@@ -119,11 +119,11 @@
         icon: pi-hole.png
         description: "Network-wide Ad Blocking"
         href: http://192.168.1.146/admin
-        widget:
-          type: pihole
-          url: http://192.168.1.146
-          version: 6
-          # key: {{HOMEPAGE_PIHOLE_PASSWORD}}
+        # widget:
+        #   type: pihole
+        #   url: http://192.168.1.146
+        #   version: 6
+        #   key: {{HOMEPAGE_VAR_PIHOLE_PASSWORD}}
     - Stirling PDF:
         icon: stirling-pdf.png
         description: "PDF Tools"
