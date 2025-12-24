@@ -170,17 +170,6 @@
           url: http://ts-npm:81
           username: {{HOMEPAGE_VAR_NPM_USERNAME}}
           password: {{HOMEPAGE_VAR_NPM_PASSWORD}}
-    - Mealie:
-        icon: mealie.png
-        description: "Recipe Manager"
-        href: http://{{HOMEPAGE_VAR_HOST_IP}}:9925
-        server: dockerproxy
-        container: mealie
-        widget:
-          type: mealie
-          url: http://{{HOMEPAGE_VAR_HOST_IP}}:9925
-          key: {{HOMEPAGE_VAR_MEALIE_API_KEY}}
-          version: 2 # only required if version > 1, defaults to 1
     #
     # - Gitlab:
     #     icon: gitlab.png

@@ -33,25 +33,3 @@ services:
     restart: unless-stopped
     networks:
       - homelab
-
-  mealie:
-    image: ghcr.io/mealie-recipes/mealie:latest
-    container_name: mealie
-    environment:
-      # Set Backend ENV Variables Here
-      ALLOW_SIGNUP: "false"
-      PUID: 1000
-      PGID: 1000
-      TZ: Etc/UTC
-      BASE_URL: http://192.168.1.180:9925
-    deploy:
-      resources:
-        limits:
-          memory: 1000M
-    volumes:
-      - /data/mealie/data:/app/data/
-    ports:
-        - 9925:9000
-    restart: unless-stopped
-    networks:
-      - homelab
