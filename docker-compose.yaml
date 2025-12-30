@@ -35,6 +35,7 @@ services:
       HOMEPAGE_VAR_URL: $URL
       HOMEPAGE_VAR_HOST_IP: $HOST_IP
       HOMEPAGE_VAR_PIHOLE_PASSWORD: $PIHOLE_WEBPASSWORD
+      LOG_LEVEL: debug
     ports:
       - 8001:3000
     volumes:

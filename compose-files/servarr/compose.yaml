@@ -171,3 +171,19 @@ services:
       retries: 20
     labels:
       autoheal: true
+
+  readarr-ebooks:
+    image: lscr.io/linuxserver/readarr:develop
+    container_name: readarr-ebooks
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Etc/UTC
+    ports:
+      - 8788:8787
+    volumes:
+      - ${BASE_PATH}/config/readarr-ebooks/config:/config
+      - /data:/transcend  # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
+    restart: unless-stopped
+    networks:
+      - homelab

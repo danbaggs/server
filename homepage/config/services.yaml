@@ -93,16 +93,26 @@
           type: readarr
           url: http://transmission-openvpn:8787
           key: {{HOMEPAGE_VAR_READARR_API_KEY}}
-    - Bazarr:
-        icon: bazarr.png
-        description: "Subtitles Management"
-        href: http://{{HOMEPAGE_VAR_HOST_IP}}:6767
+    - Readarr ebooks:
+        icon: readarr.png
+        description: "ebook Management"
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:8788
         server: dockerproxy
-        container: bazarr
+        container: readarr-ebooks
         widget:
-          type: bazarr
-          url: http://transmission-openvpn:6767
-          key: {{HOMEPAGE_VAR_BAZARR_API_KEY}}
+          type: readarr
+          url: http://readarr-ebooks:8787
+          key: {{HOMEPAGE_VAR_READARR_API_KEY}}
+    # - Bazarr:
+    #     icon: bazarr.png
+    #     description: "Subtitles Management"
+    #     href: http://{{HOMEPAGE_VAR_HOST_IP}}:6767
+    #     server: dockerproxy
+    #     container: bazarr
+    #     widget:
+    #       type: bazarr
+    #       url: http://transmission-openvpn:6767
+    #       key: {{HOMEPAGE_VAR_BAZARR_API_KEY}}
     - Prowlarr:
         icon: prowlarr.png
         description: "Torrent Indexer Service"
