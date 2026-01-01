@@ -125,15 +125,6 @@
           key: {{HOMEPAGE_VAR_PROWLARR_API_KEY}}
 
 - Tools:
-    - Pihole:
-        icon: pi-hole.png
-        description: "Network-wide Ad Blocking"
-        href: http://192.168.1.146/admin
-        # widget:
-        #   type: pihole
-        #   url: http://192.168.1.146
-        #   version: 6
-        #   key: {{HOMEPAGE_VAR_PIHOLE_PASSWORD}}
     - Stirling PDF:
         icon: stirling-pdf.png
         description: "PDF Tools"
@@ -158,6 +149,15 @@
         href: http://{{HOMEPAGE_VAR_HOST_IP}}:8090/system/Asus
         server: dockerproxy
         container: beszel
+    - Pihole:
+        icon: pi-hole.png
+        description: "Network-wide Ad Blocking"
+        href: http://192.168.1.55:80/admin
+        widget:
+          type: pihole
+          url: http://192.168.1.55:80
+          version: 6
+          key: {{HOMEPAGE_VAR_PIHOLE_PASSWORD}}
     - Portainer:
         icon: portainer.png
         description: "Docker Management UI"
