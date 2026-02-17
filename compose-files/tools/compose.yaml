@@ -18,18 +18,18 @@ services:
     networks:
       - homelab
 
-  nextcloud:
-    image: lscr.io/linuxserver/nextcloud:latest
-    container_name: nextcloud
-    environment:
-      PUID: 1000
-      PGID: 1000
-      TZ: Etc/UTC
-    volumes:
-      - ${BASE_PATH}/config/nextcloud/config:/config
-      - /data:/data
-    ports:
-      - 8443:443
-    restart: unless-stopped
-    networks:
-      - homelab
+  # nextcloud:
+  #   image: lscr.io/linuxserver/nextcloud:latest
+  #   container_name: nextcloud
+  #   environment:
+  #     PUID: 1000
+  #     PGID: 1000
+  #     TZ: Etc/UTC
+  #   volumes:
+  #     - ${BASE_PATH}/config/nextcloud/config:/config
+  #     - /data:/data
+  #   ports:
+  #     - 8443:443
+  #   restart: unless-stopped
+  #   networks:
+  #     - homelab

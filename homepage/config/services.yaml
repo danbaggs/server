@@ -56,10 +56,10 @@
         description: "Torrent Download Client"
         href: http://{{HOMEPAGE_VAR_HOST_IP}}:9091
         server: dockerproxy
-        container: transmission-openvpn
+        container: transmission
         widget:
           type: transmission
-          url: http://transmission-openvpn:9091
+          url: http://wireguard:9091
           username: ""
           password: ""
           rpcUrl: "/transmission/"
@@ -71,7 +71,7 @@
         container: sonarr
         widget:
           type: sonarr
-          url: http://transmission-openvpn:8989
+          url: http://wireguard:8989
           key: {{HOMEPAGE_VAR_SONARR_API_KEY}}
     - Radarr:
         icon: radarr.png
@@ -81,7 +81,7 @@
         container: radarr
         widget:
           type: radarr
-          url: http://transmission-openvpn:7878
+          url: http://wireguard:7878
           key: {{HOMEPAGE_VAR_RADARR_API_KEY}}
     - Readarr Audiobooks:
         icon: readarr.png
@@ -91,7 +91,7 @@
         container: readarr-audiobooks
         widget:
           type: readarr
-          url: http://transmission-openvpn:8787
+          url: http://wireguard:8787
           key: {{HOMEPAGE_VAR_READARR_API_KEY}}
     - Readarr ebooks:
         icon: readarr.png
@@ -111,7 +111,7 @@
     #     container: bazarr
     #     widget:
     #       type: bazarr
-    #       url: http://transmission-openvpn:6767
+    #       url: http://wireguard:6767
     #       key: {{HOMEPAGE_VAR_BAZARR_API_KEY}}
     - Prowlarr:
         icon: prowlarr.png
@@ -121,7 +121,7 @@
         container: prowlarr
         widget:
           type: prowlarr
-          url: http://transmission-openvpn:9696
+          url: http://wireguard:9696
           key: {{HOMEPAGE_VAR_PROWLARR_API_KEY}}
 
 - Tools:
@@ -131,12 +131,12 @@
         href: http://{{HOMEPAGE_VAR_HOST_IP}}:8080
         server: dockerproxy
         container: stirling-pdf
-    - Nextcloud:
-        icon: nextcloud.png
-        description: "File Sync and Share"
-        href: https://{{HOMEPAGE_VAR_HOST_IP}}:8443
-        server: dockerproxy
-        container: nextcloud
+    # - Nextcloud:
+    #     icon: nextcloud.png
+    #     description: "File Sync and Share"
+    #     href: https://{{HOMEPAGE_VAR_HOST_IP}}:8443
+    #     server: dockerproxy
+    #     container: nextcloud
     - Jellystat:
         icon: jellystat.png
         description: "Jellyfin Statistics"
@@ -149,13 +149,20 @@
         href: http://{{HOMEPAGE_VAR_HOST_IP}}:8090/system/Asus
         server: dockerproxy
         container: beszel
+        # widget:
+        #   type: beszel
+        #   url: http://beszel:8090
+        #   username: {{HOMEPAGE_VAR_BESZEL_USERNAME}} # email
+        #   password: {{HOMEPAGE_VAR_BESZEL_PASSWORD}}
+        #   systemId: Asus
+        #   version: 2 # optional, default is 1
     - Pihole:
         icon: pi-hole.png
         description: "Network-wide Ad Blocking"
-        href: http://192.168.1.55:80/admin
+        href: http://192.168.0.150:80/admin
         widget:
           type: pihole
-          url: http://192.168.1.55:80
+          url: http://192.168.0.150:80
           version: 6
           key: {{HOMEPAGE_VAR_PIHOLE_PASSWORD}}
     - Portainer:

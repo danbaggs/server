@@ -50,18 +50,18 @@
         - icon: nginx-proxy-manager.png
           description: Reverse Proxy
           href: https://npm.{{HOMEPAGE_VAR_URL}}
-    - Pihole:
-        - icon: pi-hole.png
-          description: Network-wide Ad Blocking
-          href: http://pihole.humpback-ratio.ts.net/admin
+    # - Pihole:
+    #     - icon: pi-hole.png
+    #       description: Network-wide Ad Blocking
+    #       href: http://pihole.humpback-ratio.ts.net/admin
     - Stirling PDF:
         - icon: stirling-pdf.png
           description: PDF Tools
           href: https://stirling-pdf.{{HOMEPAGE_VAR_URL}}
-    - Nextcloud:
-        - icon: nextcloud.png
-          description: File Sync and Share
-          href: https://nextcloud.{{HOMEPAGE_VAR_URL}}
+    # - Nextcloud:
+    #     - icon: nextcloud.png
+    #       description: File Sync and Share
+    #       href: https://nextcloud.{{HOMEPAGE_VAR_URL}}
     - Jellystat:
         - icon: jellystat.png
           description: Jellyfin Statistics

@@ -1,6 +1,7 @@
 include:
   - compose-files/management/compose.yaml
-  - compose-files/openvpn-transmission/compose.yaml
+  - compose-files/wireguard/compose.yaml
+  - compose-files/transmission/compose.yaml
   - compose-files/servarr/compose.yaml
   - compose-files/media/compose.yaml
   - compose-files/tools/compose.yaml
@@ -18,6 +19,7 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
+      NODE_TLS_REJECT_UNAUTHORIZED: 0
       HOMEPAGE_ALLOWED_HOSTS: $HOMEPAGE_ALLOWED_HOSTS
       HOMEPAGE_VAR_SONARR_API_KEY: $SONARR_API_KEY
       HOMEPAGE_VAR_RADARR_API_KEY: $RADARR_API_KEY
@@ -35,13 +37,15 @@ services:
       HOMEPAGE_VAR_URL: $URL
       HOMEPAGE_VAR_HOST_IP: $HOST_IP
       HOMEPAGE_VAR_PIHOLE_PASSWORD: $PIHOLE_WEBPASSWORD
+      HOMEPAGE_VAR_BESZEL_USERNAME: $BESZEL_USERNAME
+      HOMEPAGE_VAR_BESZEL_PASSWORD: $BESZEL_PASSWORD
       LOG_LEVEL: debug
     ports:
       - 8001:3000
     volumes:
-      - ${BASE_PATH}/homepage/config:/app/config
-      - ${BASE_PATH}/homepage/images:/app/public/images
-      - ${BASE_PATH}/homepage/icons:/app/public/icons
+      - ./homepage/config:/app/config
+      - ./homepage/images:/app/public/images
+      - ./homepage/icons:/app/public/icons
     restart: unless-stopped
     networks:
       - homelab
@@ -68,3 +72,8 @@ networks:
   homelab:
     name: homelab
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/24
+          ip_range: 172.18.0.0/24
+          gateway: 172.18.0.1

@@ -1,0 +1,32 @@
+services:
+  transmission:
+    image: linuxserver/transmission:4.1.0
+    container_name: transmission
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ${BASE_PATH}/config/transmission-home:/config
+      - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
+    depends_on:
+      - wireguard
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Etc/UTC
+      PEERPORT: 54914
+      # TRANSMISSION_WEB_UI_PORT: 9091
+      # LOCAL_NETWORK: 192.168.0.0/24
+      # TRANSMISSION_DOWNLOAD_DIR: /transcend/torrents # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
+    # ports:  # map all svc you wanna route through VPN
+    #   - 9091:9091 # Transmission Web UI
+    #   - 8191:8191 # Flaresolverr
+    #   - 9696:9696 # Prowlarr
+    #   - 8989:8989 # Sonarr
+    #   - 7878:7878 # Radarr
+    #   - 6767:6767 # Bazarr
+    #   - 8787:8787 # Readarr
+    restart: unless-stopped
+    network_mode: "service:wireguard"
+    labels:
+      autoheal: true
+

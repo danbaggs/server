@@ -28,7 +28,7 @@ layout:
     icon: servarr.png
   Tools:
     style: row
-    columns: 4
+    columns: 3
     icon: it-tools-light.png
   Tailscale Bookmarks:
     icon: tailscale-light.png

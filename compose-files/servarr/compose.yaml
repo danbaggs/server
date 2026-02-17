@@ -4,7 +4,7 @@ services:
     image: fallenbagel/jellyseerr:latest
     container_name: jellyseerr
     depends_on:
-      - transmission-openvpn
+      - wireguard
     environment:
       PUID: 1000
       PGID: 1000
@@ -18,8 +18,8 @@ services:
     networks:
       - homelab
     healthcheck:
-      # Verify that the transmission-openvpn container is running
-      test: ["CMD", "curl", "-f", "http://transmission-openvpn:9091"] 
+      # Verify that the wireguard container is running
+      test: ["CMD", "curl", "-f", "http://wireguard:9091"] 
       interval: 30s
       timeout: 2s
       retries: 20
@@ -34,7 +34,7 @@ services:
     image: lscr.io/linuxserver/prowlarr:latest
     container_name: prowlarr
     depends_on:
-      - transmission-openvpn
+      - wireguard
     volumes:
       - ${BASE_PATH}/config/prowlarr/config:/config
     environment:
@@ -43,12 +43,12 @@ services:
       TZ: Etc/UTC
     restart: unless-stopped
     healthcheck:
-      # Verify that the transmission-openvpn container is running
+      # Verify that the wireguard container is running
       test: ["CMD", "curl", "-f", "http://localhost:9091"] 
       interval: 30s
       timeout: 2s
       retries: 20
-    network_mode: "service:transmission-openvpn"
+    network_mode: "service:wireguard"
     labels:
       autoheal: true
 
@@ -56,27 +56,28 @@ services:
     image: flaresolverr/flaresolverr:latest
     container_name: flaresolverr
     depends_on:
-      - transmission-openvpn
+      - wireguard
     environment:
       PUID: 1000
       PGID: 1000
       LOG_LEVEL: debug
     restart: unless-stopped
     healthcheck:
-      # Verify that the transmission-openvpn container is running
+      # Verify that the wireguard container is running
       test: ["CMD", "curl", "-f", "http://localhost:9091"] 
       interval: 30s
       timeout: 2s
       retries: 20
-    network_mode: "service:transmission-openvpn"
+    network_mode: "service:wireguard"
     labels:
       autoheal: true
 
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
+    privileged: true
     depends_on:
-      - transmission-openvpn
+      - wireguard
     environment:
       PUID: 1000
       PGID: 1000
@@ -87,9 +88,9 @@ services:
       - ${BASE_PATH}/config/sonarr/config:/config
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
-    network_mode: "service:transmission-openvpn"
+    network_mode: "service:wireguard"
     healthcheck:
-      # Verify that the transmission-openvpn container is running
+      # Verify that the wireguard container is running
       test: ["CMD", "curl", "-f", "http://localhost:9091"] 
       interval: 30s
       timeout: 2s
@@ -101,7 +102,7 @@ services:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
     depends_on:
-      - transmission-openvpn
+      - wireguard
     environment:
       PUID: 1000
       PGID: 1000
@@ -112,9 +113,9 @@ services:
       - ${BASE_PATH}/config/radarr/config:/config
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
-    network_mode: "service:transmission-openvpn"
+    network_mode: "service:wireguard"
     healthcheck:
-      # Verify that the transmission-openvpn container is running
+      # Verify that the wireguard container is running
       test: ["CMD", "curl", "-f", "http://localhost:9091"] 
       interval: 30s
       timeout: 2s
@@ -126,7 +127,7 @@ services:
     image: lscr.io/linuxserver/bazarr:latest
     container_name: bazarr
     depends_on:
-      - transmission-openvpn
+      - wireguard
     environment:
       PUID: 1000
       PGID: 1000
@@ -137,9 +138,9 @@ services:
       - ${BASE_PATH}/config/bazarr/config:/config
       - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
-    network_mode: "service:transmission-openvpn"
+    network_mode: "service:wireguard"
     healthcheck:
-      # Verify that the transmission-openvpn container is running
+      # Verify that the wireguard container is running
       test: ["CMD", "curl", "-f", "http://localhost:9091"] 
       interval: 30s
       timeout: 2s
@@ -151,7 +152,7 @@ services:
     image: lscr.io/linuxserver/readarr:develop
     container_name: readarr-audiobooks
     depends_on:
-      - transmission-openvpn
+      - wireguard
     environment:
       PUID: 1000
       PGID: 1000
@@ -162,9 +163,9 @@ services:
       - ${BASE_PATH}/config/readarr-audiobooks/config:/config
       - /data:/transcend  # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
     restart: unless-stopped
-    network_mode: "service:transmission-openvpn"
+    network_mode: "service:wireguard"
     healthcheck:
-      # Verify that the transmission-openvpn container is running
+      # Verify that the wireguard container is running
       test: ["CMD", "curl", "-f", "http://localhost:9091"] 
       interval: 30s
       timeout: 2s
