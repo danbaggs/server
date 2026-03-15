@@ -157,28 +157,6 @@
         href: http://{{HOMEPAGE_VAR_HOST_IP}}:3000
         server: dockerproxy
         container: jellystat
-    - Beszel:
-        icon: beszel.png
-        description: "Container Monitoring"
-        href: http://{{HOMEPAGE_VAR_HOST_IP}}:8090/system/Asus
-        server: dockerproxy
-        container: beszel
-        # widget:
-        #   type: beszel
-        #   url: http://beszel:8090
-        #   username: {{HOMEPAGE_VAR_BESZEL_USERNAME}} # email
-        #   password: {{HOMEPAGE_VAR_BESZEL_PASSWORD}}
-        #   systemId: Asus
-        #   version: 2 # optional, default is 1
-    - Pihole:
-        icon: pi-hole.png
-        description: "Network-wide Ad Blocking"
-        href: http://192.168.0.150:80/admin
-        widget:
-          type: pihole
-          url: http://192.168.0.150:80
-          version: 6
-          key: {{HOMEPAGE_VAR_PIHOLE_PASSWORD}}
     - Portainer:
         icon: portainer.png
         description: "Docker Management UI"
@@ -201,6 +179,28 @@
           url: http://ts-npm:81
           username: {{HOMEPAGE_VAR_NPM_USERNAME}}
           password: {{HOMEPAGE_VAR_NPM_PASSWORD}}
+    - Beszel:
+        icon: beszel.png
+        description: "Container Monitoring"
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:8090/system/Asus
+        server: dockerproxy
+        container: beszel
+        # widget:
+        #   type: beszel
+        #   url: http://beszel:8090
+        #   username: {{HOMEPAGE_VAR_BESZEL_USERNAME}} # email
+        #   password: {{HOMEPAGE_VAR_BESZEL_PASSWORD}}
+        #   systemId: Asus
+        #   version: 2 # optional, default is 1
+    - Pihole:
+        icon: pi-hole.png
+        description: "Network-wide Ad Blocking"
+        href: http://192.168.0.150:80/admin
+        widget:
+          type: pihole
+          url: http://192.168.0.150:80
+          version: 6
+          key: {{HOMEPAGE_VAR_PIHOLE_PASSWORD}}
     #
     # - Gitlab:
     #     icon: gitlab.png
