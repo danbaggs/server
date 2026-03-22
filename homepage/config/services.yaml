@@ -125,6 +125,15 @@
           key: {{HOMEPAGE_VAR_PROWLARR_API_KEY}}
 
 - Tools:
+    - Pihole:
+        icon: pi-hole.png
+        description: "Network-wide Ad Blocking"
+        href: http://192.168.0.150:80/admin
+        widget:
+          type: pihole
+          url: http://192.168.0.150:80
+          version: 6
+          key: {{HOMEPAGE_VAR_PIHOLE_PASSWORD}}
     - Home Assistant:
         icon: home-assistant.png
         description: Home Assistant
@@ -192,15 +201,6 @@
         #   password: {{HOMEPAGE_VAR_BESZEL_PASSWORD}}
         #   systemId: Asus
         #   version: 2 # optional, default is 1
-    - Pihole:
-        icon: pi-hole.png
-        description: "Network-wide Ad Blocking"
-        href: http://192.168.0.150:80/admin
-        widget:
-          type: pihole
-          url: http://192.168.0.150:80
-          version: 6
-          key: {{HOMEPAGE_VAR_PIHOLE_PASSWORD}}
     #
     # - Gitlab:
     #     icon: gitlab.png
