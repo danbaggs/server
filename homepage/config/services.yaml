@@ -83,26 +83,26 @@
           type: radarr
           url: http://wireguard:7878
           key: {{HOMEPAGE_VAR_RADARR_API_KEY}}
-    - Readarr Audiobooks:
-        icon: readarr.png
-        description: "Audiobook Management"
-        href: http://{{HOMEPAGE_VAR_HOST_IP}}:8787
-        server: dockerproxy
-        container: readarr-audiobooks
-        widget:
-          type: readarr
-          url: http://wireguard:8787
-          key: {{HOMEPAGE_VAR_READARR_API_KEY}}
-    - Readarr ebooks:
-        icon: readarr.png
-        description: "ebook Management"
-        href: http://{{HOMEPAGE_VAR_HOST_IP}}:8788
-        server: dockerproxy
-        container: readarr-ebooks
-        widget:
-          type: readarr
-          url: http://readarr-ebooks:8787
-          key: {{HOMEPAGE_VAR_READARR_API_KEY}}
+    # - Readarr Audiobooks:
+    #     icon: readarr.png
+    #     description: "Audiobook Management"
+    #     href: http://{{HOMEPAGE_VAR_HOST_IP}}:8787
+    #     server: dockerproxy
+    #     container: readarr-audiobooks
+    #     widget:
+    #       type: readarr
+    #       url: http://wireguard:8787
+    #       key: {{HOMEPAGE_VAR_READARR_API_KEY}}
+    # - Readarr ebooks:
+    #     icon: readarr.png
+    #     description: "ebook Management"
+    #     href: http://{{HOMEPAGE_VAR_HOST_IP}}:8788
+    #     server: dockerproxy
+    #     container: readarr-ebooks
+    #     widget:
+    #       type: readarr
+    #       url: http://readarr-ebooks:8787
+    #       key: {{HOMEPAGE_VAR_READARR_API_KEY}}
     # - Bazarr:
     #     icon: bazarr.png
     #     description: "Subtitles Management"

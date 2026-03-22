@@ -24,7 +24,7 @@ layout:
     icon: jellyfin.png
   Servarr:
     style: row
-    columns: 3
+    columns: 4
     icon: servarr.png
   Tools:
     style: row
