@@ -28,16 +28,16 @@
           # enableUser: true # optional, defaults to false
           showEpisodeNumber: true # optional, defaults to false
           expandOneStreamToTwoRows: false # optional, defaults to true
-    - Audiobookshelf:
-        icon: audiobookshelf.png
-        description: "Audiobooks library"
-        href: http://{{HOMEPAGE_VAR_HOST_IP}}:13378
-        server: dockerproxy
-        container: audiobookshelf
-        widget:
-          type: audiobookshelf
-          url: http://audiobookshelf
-          key: {{HOMEPAGE_VAR_AUDIOBOOKSHELF_API_KEY}}
+    # - Audiobookshelf:
+    #     icon: audiobookshelf.png
+    #     description: "Audiobooks library"
+    #     href: http://{{HOMEPAGE_VAR_HOST_IP}}:13378
+    #     server: dockerproxy
+    #     container: audiobookshelf
+    #     widget:
+    #       type: audiobookshelf
+    #       url: http://audiobookshelf
+    #       key: {{HOMEPAGE_VAR_AUDIOBOOKSHELF_API_KEY}}
     - Calibre:
         icon: calibre.png
         description: "ebooks library"
@@ -148,12 +148,12 @@
             - state: weather.forecast_home
               label: wind speed
               value: "{attributes.wind_speed} {attributes.wind_speed_unit}"
-    - Stirling PDF:
-        icon: stirling-pdf.png
-        description: "PDF Tools"
-        href: http://{{HOMEPAGE_VAR_HOST_IP}}:8080
-        server: dockerproxy
-        container: stirling-pdf
+    # - Stirling PDF:
+    #     icon: stirling-pdf.png
+    #     description: "PDF Tools"
+    #     href: http://{{HOMEPAGE_VAR_HOST_IP}}:8080
+    #     server: dockerproxy
+    #     container: stirling-pdf
     # - Nextcloud:
     #     icon: nextcloud.png
     #     description: "File Sync and Share"
@@ -166,6 +166,12 @@
         href: http://{{HOMEPAGE_VAR_HOST_IP}}:3000
         server: dockerproxy
         container: jellystat
+    - Actual-Budget:
+        icon: actual-budget.png
+        description: "Acutal Budget - Personal Finance Manager"
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:5006
+        server: dockerproxy
+        container: app-actual-budget
     - Portainer:
         icon: portainer.png
         description: "Docker Management UI"
