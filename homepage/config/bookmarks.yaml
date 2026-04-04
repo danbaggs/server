@@ -54,10 +54,10 @@
     #     - icon: pi-hole.png
     #       description: Network-wide Ad Blocking
     #       href: http://pihole.humpback-ratio.ts.net/admin
-    - Stirling PDF:
-        - icon: stirling-pdf.png
-          description: PDF Tools
-          href: https://stirling-pdf.{{HOMEPAGE_VAR_URL}}
+    # - Stirling PDF:
+    #     - icon: stirling-pdf.png
+    #       description: PDF Tools
+    #       href: https://stirling-pdf.{{HOMEPAGE_VAR_URL}}
     # - Nextcloud:
     #     - icon: nextcloud.png
     #       description: File Sync and Share
@@ -70,6 +70,10 @@
         - icon: beszel.png
           description: Container Monitoring
           href: https://beszel.{{HOMEPAGE_VAR_URL}}
+    - Actual Budget:
+        - icon: actual-budget.png
+          description: Personal Finance Management
+          href: https://actual-budget.{{HOMEPAGE_VAR_TAILNET}}
   # - Gitlab:
   #     - icon: gitlab.png
   #       description: "Self-hosted Gitlab"
