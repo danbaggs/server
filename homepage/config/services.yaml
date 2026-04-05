@@ -78,10 +78,10 @@
         description: "Movies Management"
         href: http://{{HOMEPAGE_VAR_HOST_IP}}:7878
         server: dockerproxy
-        container: radarr
+        container: app-radarr
         widget:
           type: radarr
-          url: http://wireguard:7878
+          url: http://{{HOMEPAGE_VAR_HOST_IP}}:7878
           key: {{HOMEPAGE_VAR_RADARR_API_KEY}}
     # - Readarr Audiobooks:
     #     icon: readarr.png
