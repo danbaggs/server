@@ -22,8 +22,6 @@ services:
       timeout: 3s
       interval: 15s
       retries: 3
-    labels:
-      autoheal: true
 
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
@@ -44,8 +42,6 @@ services:
       timeout: 2s
       retries: 20
     network_mode: "service:wireguard"
-    labels:
-      autoheal: true
 
   flaresolverr:
     image: flaresolverr/flaresolverr:latest
@@ -64,8 +60,6 @@ services:
       timeout: 2s
       retries: 20
     network_mode: "service:wireguard"
-    labels:
-      autoheal: true
 
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
@@ -90,8 +84,6 @@ services:
       interval: 30s
       timeout: 2s
       retries: 20
-    labels:
-      autoheal: true
 
   radarr:
     image: lscr.io/linuxserver/radarr:latest
@@ -115,8 +107,6 @@ services:
       interval: 30s
       timeout: 2s
       retries: 20
-    labels:
-      autoheal: true
 
   bazarr:
     image: lscr.io/linuxserver/bazarr:latest
@@ -140,8 +130,6 @@ services:
       interval: 30s
       timeout: 2s
       retries: 20
-    labels:
-      autoheal: true
 
   # readarr-audiobooks:
   #   image: lscr.io/linuxserver/readarr:develop
@@ -165,8 +153,6 @@ services:
   #     interval: 30s
   #     timeout: 2s
   #     retries: 20
-  #   labels:
-  #     autoheal: true
   #
   # readarr-ebooks:
   #   image: lscr.io/linuxserver/readarr:develop

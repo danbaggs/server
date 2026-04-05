@@ -16,6 +16,4 @@ services:
       PEERPORT: 54914
     restart: unless-stopped
     network_mode: "service:wireguard"
-    labels:
-      autoheal: true
 

@@ -1,5 +1,4 @@
 include:
-  - compose-files/management/compose.yaml
   - compose-files/wireguard/compose.yaml
   - compose-files/transmission/compose.yaml
   - compose-files/servarr/compose.yaml
