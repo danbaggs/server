@@ -8,10 +8,10 @@
         description: "Media search"
         href: http://{{HOMEPAGE_VAR_HOST_IP}}:5055
         server: dockerproxy
-        container: jellyseerr
+        container: app-jellyseerr
         widget:
           type: jellyseerr
-          url: http://jellyseerr:5055
+          url: http://{{HOMEPAGE_VAR_HOST_IP}}:5055
           key: {{HOMEPAGE_VAR_JELLYSEERR_API_KEY}}
     - Jellyfin:
         icon: jellyfin.png

@@ -10,10 +10,10 @@
         - icon: dockhand.png
           description: Container Management
           href: https://dockhand.{{HOMEPAGE_VAR_TAILNET}}
-    # - Jellyseerr:
-    #     - icon: jellyseerr.png
-    #       description: Media search
-    #       href: https://jellyseerr.{{HOMEPAGE_VAR_URL}}
+    - Jellyseerr:
+        - icon: jellyseerr.png
+          description: Media search
+          href: https://jellyseerr.{{HOMEPAGE_VAR_TAILNET}}
     - Jellyfin:
         - icon: jellyfin.png
           description: Media server
