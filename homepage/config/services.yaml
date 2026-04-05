@@ -162,7 +162,7 @@
         container: jellystat
     - Actual-Budget:
         icon: actual-budget.png
-        description: "Acutal Budget - Personal Finance Manager"
+        description: "Personal Finance Manager"
         href: http://{{HOMEPAGE_VAR_HOST_IP}}:5006
         server: dockerproxy
         container: app-actual-budget
@@ -177,14 +177,3 @@
           url: http://{{HOMEPAGE_VAR_HOST_IP}}:8002
           username: root
           password: R^yNiVNBKhtdR3&Aeye2
-    - Nginx Proxy Manager:
-        icon: nginx-proxy-manager.png
-        description: "Reverse Proxy"
-        href: http://{{HOMEPAGE_VAR_HOST_IP}}:81
-        server: dockerproxy
-        container: nginx-proxy-manager
-        widget:
-          type: npm
-          url: http://ts-npm:81
-          username: {{HOMEPAGE_VAR_NPM_USERNAME}}
-          password: {{HOMEPAGE_VAR_NPM_PASSWORD}}
