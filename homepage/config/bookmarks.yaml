@@ -18,10 +18,10 @@
         - icon: jellyfin.png
           description: Media server
           href: https://jellyfin.{{HOMEPAGE_VAR_TAILNET}}
-    # - Audiobookshelf:
-    #     - icon: audiobookshelf.png
-    #       description: Audiobooks library
-    #       href: https://audiobookshelf.{{HOMEPAGE_VAR_URL}}
+    - Audiobookshelf:
+        - icon: audiobookshelf.png
+          description: Audiobooks library
+          href: https://audiobookshelf.{{HOMEPAGE_VAR_TAILNET}}
     - Calibre-Web:
         - icon: calibre.png
           description: ebooks library
