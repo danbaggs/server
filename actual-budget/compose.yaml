@@ -68,7 +68,7 @@ services:
       # See all options and more details at https://actualbudget.org/docs/config/
       # !! If you are not using any of these options, remove the 'environment:' tag entirely.
     volumes:
-      - /data/server/${SERVICE}-data:/data
+      - ${BASE_PATH}/${SERVICE}-data:/data
     depends_on:
       tailscale:
         condition: service_healthy

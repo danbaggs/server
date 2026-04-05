@@ -58,7 +58,7 @@ services:
       - HOST_DATA_DIR=/app/data
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /data/server/dockhand-data:/app/data # Data directory for Dockhand - you may need to change the path
+      - ${BASE_PATH}/dockhand-data:/app/data # Data directory for Dockhand - you may need to change the path
     depends_on:
       tailscale:
         condition: service_healthy
