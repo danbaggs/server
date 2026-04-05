@@ -14,10 +14,10 @@
     #     - icon: jellyseerr.png
     #       description: Media search
     #       href: https://jellyseerr.{{HOMEPAGE_VAR_URL}}
-    # - Jellyfin:
-    #     - icon: jellyfin.png
-    #       description: Media server
-    #       href: https://jellyfin.{{HOMEPAGE_VAR_URL}}
+    - Jellyfin:
+        - icon: jellyfin.png
+          description: Media server
+          href: https://jellyfin.{{HOMEPAGE_VAR_TAILNET}}
     # - Audiobookshelf:
     #     - icon: audiobookshelf.png
     #       description: Audiobooks library

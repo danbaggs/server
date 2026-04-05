@@ -33,28 +33,6 @@ services:
   #   networks:
   #     - homelab
 
-  jellyfin:
-    image: jellyfin/jellyfin:latest
-    container_name: jellyfin
-    # user: "1000:1000"
-    ports:
-      - 8096:8096
-    volumes:
-      - ${BASE_PATH}/config/jellyfin/config:/config
-      - ${BASE_PATH}/config/jellyfin/cache:/cache
-      - type: bind
-        source: /data/media
-        target: /transcend/media # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
-    restart: "unless-stopped"
-    # # Optional - alternative address used for autodiscovery
-    # environment:
-    #   - JELLYFIN_PublishedServerUrl=http://$HOMEPAGE_VAR_HOST_IP:8096
-    # # Optional - may be necessary for docker healthcheck to pass if running in host network mode
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    networks:
-      - homelab
-
   jellystat:
     container_name: jellystat
     image: cyfershepard/jellystat:latest

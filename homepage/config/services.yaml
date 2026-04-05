@@ -18,10 +18,10 @@
         description: "Media server"
         href: http://{{HOMEPAGE_VAR_HOST_IP}}:8096/
         server: dockerproxy
-        container: jellyfin
+        container: app-jellyfin
         widget:
           type: jellyfin
-          url: http://jellyfin:8096
+          url: http://{{HOMEPAGE_VAR_HOST_IP}}:8096
           key: {{HOMEPAGE_VAR_JELLYFIN_API_KEY}}
           enableBlocks: true # optional, defaults to false
           enableNowPlaying: true # optional, defaults to true
