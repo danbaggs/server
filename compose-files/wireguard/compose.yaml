@@ -25,6 +25,12 @@ services:
       - /lib/modules:/lib/modules
       - ${BASE_PATH}/config/wireguard/se-got-wg-001.conf:/config/wg_confs/wg0.conf
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "ip link show wg0 | grep -q 'UP' && curl -s --max-time 5 https://1.1.1.1 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
     networks:
       - homelab
 

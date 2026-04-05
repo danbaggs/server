@@ -1,20 +1,5 @@
 services:
 
-  audiobookshelf:
-    image: ghcr.io/advplyr/audiobookshelf:latest
-    container_name: audiobookshelf
-    ports:
-      - 13378:80
-    volumes:
-      - /data/media/audiobooks:/audiobooks
-      - ${BASE_PATH}/config/audiobookshelf/config/:/config
-      - ${BASE_PATH}/config/audiobookshelf/metadata:/metadata
-    environment:
-      TZ: Etc/UTC
-    restart: unless-stopped
-    networks:
-      - homelab
-
   jellystat:
     container_name: jellystat
     image: cyfershepard/jellystat:latest
