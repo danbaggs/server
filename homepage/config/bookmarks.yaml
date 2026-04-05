@@ -26,14 +26,10 @@
         - icon: calibre.png
           description: ebooks library
           href: https://calibre-web.{{HOMEPAGE_VAR_TAILNET}}
-    # - Transmission:
-    #     - icon: transmission.png
-    #       description: Torrent Download Client
-    #       href: https://transmission.{{HOMEPAGE_VAR_URL}}
-    # - Sonarr:
-    #     - icon: sonarr.png
-    #       description: TV Shows Management
-    #       href: https://sonarr.{{HOMEPAGE_VAR_URL}}
+    - Sonarr:
+        - icon: sonarr.png
+          description: TV Shows Management
+          href: https://sonarr.{{HOMEPAGE_VAR_TAILNET}}
     # - Radarr:
     #     - icon: radarr.png
     #       description: Movies Management
@@ -58,3 +54,7 @@
     #     - icon: jellystat.png
     #       description: Jellyfin Statistics
     #       href: https://jellystat.{{HOMEPAGE_VAR_URL}}
+    # - Transmission:
+    #     - icon: transmission.png
+    #       description: Torrent Download Client
+    #       href: https://transmission.{{HOMEPAGE_VAR_URL}}

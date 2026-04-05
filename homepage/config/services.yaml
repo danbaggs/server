@@ -68,10 +68,10 @@
         description: "TV Shows Management"
         href: http://{{HOMEPAGE_VAR_HOST_IP}}:8989
         server: dockerproxy
-        container: sonarr
+        container: app-sonarr
         widget:
           type: sonarr
-          url: http://wireguard:8989
+          url: http://{{HOMEPAGE_VAR_HOST_IP}}:8989
           key: {{HOMEPAGE_VAR_SONARR_API_KEY}}
     - Radarr:
         icon: radarr.png
