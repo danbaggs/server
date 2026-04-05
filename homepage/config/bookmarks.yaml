@@ -34,10 +34,10 @@
         - icon: radarr.png
           description: Movies Management
           href: https://radarr.{{HOMEPAGE_VAR_TAILNET}}
-    # - Readarr:
-    #     - icon: readarr.png
-    #       description: Audiobook Management
-    #       href: https://readarr.{{HOMEPAGE_VAR_URL}}
+    - Lazylibrarian:
+        - icon: lazylibrarian.png
+          description: Audiobook Management
+          href: https://lazylibrarian.{{HOMEPAGE_VAR_TAILNET}}
     # - Bazarr:
     #     - icon: bazarr.png
     #       description: Subtitles Management
