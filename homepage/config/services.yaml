@@ -43,10 +43,10 @@
         description: "ebooks library"
         href: http://{{HOMEPAGE_VAR_HOST_IP}}:8083
         server: dockerproxy
-        container: calibre-web
+        container: app-calibre-web
         widget:
           type: calibreweb
-          url: http://calibre-web:8083
+          url: http://{{HOMEPAGE_VAR_HOST_IP}}:8083
           username: {{HOMEPAGE_VAR_CALIBRE_USERNAME}}
           password: {{HOMEPAGE_VAR_CALIBRE_PASSWORD}}
 
@@ -154,12 +154,12 @@
     #     href: http://{{HOMEPAGE_VAR_HOST_IP}}:8080
     #     server: dockerproxy
     #     container: stirling-pdf
-    - Jellystat:
-        icon: jellystat.png
-        description: "Jellyfin Statistics"
-        href: http://{{HOMEPAGE_VAR_HOST_IP}}:3000
-        server: dockerproxy
-        container: jellystat
+    # - Jellystat:
+    #     icon: jellystat.png
+    #     description: "Jellyfin Statistics"
+    #     href: http://{{HOMEPAGE_VAR_HOST_IP}}:3000
+    #     server: dockerproxy
+    #     container: jellystat
     - Actual-Budget:
         icon: actual-budget.png
         description: "Personal Finance Manager"

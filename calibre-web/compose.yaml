@@ -1,4 +1,4 @@
-name: Jellyfin
+name: Calibre-Web
 
 configs:
   ts-serve:
@@ -6,7 +6,7 @@ configs:
       {"TCP":{"443":{"HTTPS":true}},
       "Web":{"$${TS_CERT_DOMAIN}:443":
           {"Handlers":{"/":
-          {"Proxy":"http://127.0.0.1:8096"}}}},
+          {"Proxy":"http://127.0.0.1:8083"}}}},
       "AllowFunnel":{"$${TS_CERT_DOMAIN}:443":false}}
 
 services:
@@ -55,12 +55,14 @@ services:
     network_mode: service:tailscale # Sidecar configuration to route ${SERVICE} through Tailscale
     container_name: app-${SERVICE} # Name for local container management
     environment:
-      - TZ=Europe/London
+      PUID: 1000
+      PGID: 1000
+      TZ: Etc/UTC
+      DOCKER_MODS: linuxserver/mods:universal-calibre # required for ebook conversion
+      OAUTHLIB_RELAX_TOKEN_SCOPE: 1 #optional
     volumes:
-      - ${BASE_PATH}/config/jellyfin/config:/config
-      - type: bind
-        source: /data/media
-        target: /transcend/media # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
+      - ${BASE_PATH}/config/calibre:/config
+      - /data/media/books:/books
     depends_on:
       tailscale:
         condition: service_healthy

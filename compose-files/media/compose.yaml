@@ -1,22 +1,4 @@
-services:
-
-  calibre-web:
-    image: lscr.io/linuxserver/calibre-web:latest
-    container_name: calibre-web
-    environment:
-      PUID: 1000
-      PGID: 1000
-      TZ: Etc/UTC
-      DOCKER_MODS: linuxserver/mods:universal-calibre # required for ebook conversion
-      OAUTHLIB_RELAX_TOKEN_SCOPE: 1 #optional
-    volumes:
-      - ${BASE_PATH}/config/calibre:/config
-      - /data/media/books:/books
-    ports:
-      - 8083:8083
-    restart: unless-stopped
-    networks:
-      - homelab
+# services:
 
   # audiobookshelf:
   #   image: ghcr.io/advplyr/audiobookshelf:latest
@@ -33,34 +15,34 @@ services:
   #   networks:
   #     - homelab
 
-  jellystat:
-    container_name: jellystat
-    image: cyfershepard/jellystat:latest
-    environment:
-      POSTGRES_USER: $POSTGRES_USER
-      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
-      POSTGRES_IP: jellystat-db
-      POSTGRES_PORT: 5432
-      JWT_SECRET: $JWT_SECRET
-    ports:
-      - 3000:3000 #Server Port
-    volumes:
-      - ${BASE_PATH}/config/jellystat:/app/backend/backup-data
-    depends_on:
-      - jellystat-db
-    restart: unless-stopped
-    networks:
-      - homelab
-
-  jellystat-db:
-    container_name: jellystat-db
-    image: postgres:15.2
-    environment:
-      POSTGRES_DB: $POSTGRES_DB
-      POSTGRES_USER: $POSTGRES_USER
-      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
-    volumes:
-    - ${BASE_PATH}/config/jellystat-postgres-data:/var/lib/postgresql/data
-    restart: unless-stopped
-    networks:
-      - homelab
+  # jellystat:
+  #   container_name: jellystat
+  #   image: cyfershepard/jellystat:latest
+  #   environment:
+  #     POSTGRES_USER: $POSTGRES_USER
+  #     POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+  #     POSTGRES_IP: jellystat-db
+  #     POSTGRES_PORT: 5432
+  #     JWT_SECRET: $JWT_SECRET
+  #   ports:
+  #     - 3000:3000 #Server Port
+  #   volumes:
+  #     - ${BASE_PATH}/config/jellystat:/app/backend/backup-data
+  #   depends_on:
+  #     - jellystat-db
+  #   restart: unless-stopped
+  #   networks:
+  #     - homelab
+  #
+  # jellystat-db:
+  #   container_name: jellystat-db
+  #   image: postgres:15.2
+  #   environment:
+  #     POSTGRES_DB: $POSTGRES_DB
+  #     POSTGRES_USER: $POSTGRES_USER
+  #     POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+  #   volumes:
+  #   - ${BASE_PATH}/config/jellystat-postgres-data:/var/lib/postgresql/data
+  #   restart: unless-stopped
+  #   networks:
+  #     - homelab

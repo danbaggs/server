@@ -4,11 +4,11 @@
 - Tailscale Bookmarks:
     - Actual Budget:
         - icon: actual-budget.png
-          description: Personal Finance Management
+          description: Finance Management
           href: https://actual-budget.{{HOMEPAGE_VAR_TAILNET}}
     - Dockhand:
         - icon: dockhand.png
-          description: Docker Container Management
+          description: Container Management
           href: https://dockhand.{{HOMEPAGE_VAR_TAILNET}}
     # - Jellyseerr:
     #     - icon: jellyseerr.png
@@ -22,10 +22,10 @@
     #     - icon: audiobookshelf.png
     #       description: Audiobooks library
     #       href: https://audiobookshelf.{{HOMEPAGE_VAR_URL}}
-    # - Calibre:
-    #     - icon: calibre.png
-    #       description: ebooks library
-    #       href: https://calibre.{{HOMEPAGE_VAR_URL}}
+    - Calibre-Web:
+        - icon: calibre.png
+          description: ebooks library
+          href: https://calibre-web.{{HOMEPAGE_VAR_TAILNET}}
     # - Transmission:
     #     - icon: transmission.png
     #       description: Torrent Download Client

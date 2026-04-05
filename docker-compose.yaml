@@ -3,7 +3,7 @@ include:
   - compose-files/wireguard/compose.yaml
   - compose-files/transmission/compose.yaml
   - compose-files/servarr/compose.yaml
-  - compose-files/media/compose.yaml
+  # - compose-files/media/compose.yaml
   # - compose-files/tools/compose.yaml
 
 services:
