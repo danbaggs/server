@@ -42,39 +42,23 @@
         - icon: prowlarr.png
           description: Torrent Indexer Service
           href: https://prowlarr.{{HOMEPAGE_VAR_URL}}
-    - Portainer:
-        - icon: portainer.png
-          description: Docker Management UI
-          href: https://portainer.{{HOMEPAGE_VAR_URL}}
     - Nginx Proxy Manager:
         - icon: nginx-proxy-manager.png
           description: Reverse Proxy
           href: https://npm.{{HOMEPAGE_VAR_URL}}
-    # - Pihole:
-    #     - icon: pi-hole.png
-    #       description: Network-wide Ad Blocking
-    #       href: http://pihole.humpback-ratio.ts.net/admin
     # - Stirling PDF:
     #     - icon: stirling-pdf.png
     #       description: PDF Tools
     #       href: https://stirling-pdf.{{HOMEPAGE_VAR_URL}}
-    # - Nextcloud:
-    #     - icon: nextcloud.png
-    #       description: File Sync and Share
-    #       href: https://nextcloud.{{HOMEPAGE_VAR_URL}}
     - Jellystat:
         - icon: jellystat.png
           description: Jellyfin Statistics
           href: https://jellystat.{{HOMEPAGE_VAR_URL}}
-    - Beszel:
-        - icon: beszel.png
-          description: Container Monitoring
-          href: https://beszel.{{HOMEPAGE_VAR_URL}}
     - Actual Budget:
         - icon: actual-budget.png
           description: Personal Finance Management
           href: https://actual-budget.{{HOMEPAGE_VAR_TAILNET}}
-  # - Gitlab:
-  #     - icon: gitlab.png
-  #       description: "Self-hosted Gitlab"
-  #       href: http://{{HOMEPAGE_VAR_HOST_IP}}:8929
+    - Dockhand:
+        - icon: dockhand.png
+          description: Docker Container Management
+          href: https://dockhand.{{HOMEPAGE_VAR_TAILNET}}
