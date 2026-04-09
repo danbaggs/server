@@ -83,12 +83,12 @@
           type: radarr
           url: http://{{HOMEPAGE_VAR_HOST_IP}}:7878
           key: {{HOMEPAGE_VAR_RADARR_API_KEY}}
-    - Lazylibrarian:
-        icon: lazylibrarian.png
-        description: "Audiobook Management"
-        href: http://{{HOMEPAGE_VAR_HOST_IP}}:5299
-        server: dockerproxy
-        container: app-lazylibrarian
+    # - Lazylibrarian:
+    #     icon: lazylibrarian.png
+    #     description: "Audiobook Management"
+    #     href: http://{{HOMEPAGE_VAR_HOST_IP}}:5299
+    #     server: dockerproxy
+    #     container: app-lazylibrarian
     - Bazarr:
         icon: bazarr.png
         description: "Subtitles Management"
@@ -152,6 +152,12 @@
         href: http://{{HOMEPAGE_VAR_HOST_IP}}:5006
         server: dockerproxy
         container: app-actual-budget
+    - FossFLOW:
+        icon: flowise.png
+        description: "System Diagrams"
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:8003
+        server: dockerproxy
+        container: app-fossflow
     - Dockhand:
         icon: dockhand.png
         description: "Docker Management UI"
