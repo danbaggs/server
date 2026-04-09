@@ -24,6 +24,7 @@ services:
       - TS_LOCAL_ADDR_PORT=127.0.0.1:41234 # The <addr>:<port> for the healthz endpoint
       - TS_ACCEPT_DNS=true # Uncomment when using MagicDNS
       - TS_AUTH_ONCE=true
+      - TS_EXTRA_ARGS=--advertise-tags=tag:container
     configs:
       - source: ts-serve
         target: /config/serve.json
@@ -60,8 +61,8 @@ services:
       - TZ=Etc/UTC
       - DOCKER_MODS=linuxserver/mods:universal-calibre|linuxserver/mods:lazylibrarian-ffmpeg #optional
     volumes:
-      - ${BASE_PATH}/config/lazylibrarian/config:/config
-      # - /data:/transcend # All the media containers use transcend internally because that's what i set originally. It's too much work to change it now.
+      - ${BASE_PATH}/lazylibrarian/config:/config
+      - /data:/data
     depends_on:
       tailscale:
         condition: service_healthy
