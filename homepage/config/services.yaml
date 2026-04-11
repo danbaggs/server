@@ -89,16 +89,16 @@
     #     href: http://{{HOMEPAGE_VAR_HOST_IP}}:5299
     #     server: dockerproxy
     #     container: app-lazylibrarian
-    - Bazarr:
-        icon: bazarr.png
-        description: "Subtitles Management"
-        href: http://{{HOMEPAGE_VAR_HOST_IP}}:6767
-        server: dockerproxy
-        container: bazarr
-        widget:
-          type: bazarr
-          url: http://wireguard:6767
-          key: {{HOMEPAGE_VAR_BAZARR_API_KEY}}
+    # - Bazarr:
+    #     icon: bazarr.png
+    #     description: "Subtitles Management"
+    #     href: http://{{HOMEPAGE_VAR_HOST_IP}}:6767
+    #     server: dockerproxy
+    #     container: bazarr
+    #     widget:
+    #       type: bazarr
+    #       url: http://wireguard:6767
+    #       key: {{HOMEPAGE_VAR_BAZARR_API_KEY}}
     - Prowlarr:
         icon: prowlarr.png
         description: "Torrent Indexer Service"
@@ -140,12 +140,6 @@
     #     href: http://{{HOMEPAGE_VAR_HOST_IP}}:8080
     #     server: dockerproxy
     #     container: stirling-pdf
-    # - Jellystat:
-    #     icon: jellystat.png
-    #     description: "Jellyfin Statistics"
-    #     href: http://{{HOMEPAGE_VAR_HOST_IP}}:3000
-    #     server: dockerproxy
-    #     container: jellystat
     - Actual-Budget:
         icon: actual-budget.png
         description: "Personal Finance Manager"
@@ -167,5 +161,17 @@
         widget:
           type: dockhand
           url: http://{{HOMEPAGE_VAR_HOST_IP}}:8002
-          username: root
-          password: R^yNiVNBKhtdR3&Aeye2
+          username: {{HOMEPAGE_VAR_DOCKHAND_USERNAME}}
+          password: {{HOMEPAGE_VAR_DOCKHAND_PASSWORD}}
+    - Jellystat:
+        icon: jellystat.png
+        description: "Jellyfin Statistics"
+        href: http://{{HOMEPAGE_VAR_HOST_IP}}:3000
+        server: dockerproxy
+        container: jellystat
+        widget:
+          type: jellystat
+          url: http://jellystat:3000
+          key: {{HOMEPAGE_VAR_JELLYSTAT_API_KEY}}
+          days: 60 # optional, defaults to 30
+
