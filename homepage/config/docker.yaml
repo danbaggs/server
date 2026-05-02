@@ -7,3 +7,6 @@ dockerproxy:
   port: 2375
 # dockerproxy:
 #   socket: /var/run/docker.sock
+medina:
+  host: 192.168.0.154
+  port: 2376

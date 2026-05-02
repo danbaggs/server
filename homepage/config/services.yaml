@@ -146,12 +146,12 @@
         href: http://{{HOMEPAGE_VAR_HOST_IP}}:5006
         server: dockerproxy
         container: app-actual-budget
-    - FossFLOW:
-        icon: flowise.png
-        description: "System Diagrams"
-        href: http://{{HOMEPAGE_VAR_HOST_IP}}:8003
-        server: dockerproxy
-        container: app-fossflow
+    # - FossFLOW:
+    #     icon: flowise.png
+    #     description: "System Diagrams"
+    #     href: http://{{HOMEPAGE_VAR_HOST_IP}}:8003
+    #     server: dockerproxy
+    #     container: app-fossflow
     - Dockhand:
         icon: dockhand.png
         description: "Docker Management UI"
@@ -174,4 +174,13 @@
           url: http://jellystat:3000
           key: {{HOMEPAGE_VAR_JELLYSTAT_API_KEY}}
           days: 60 # optional, defaults to 30
-
+    - Gitea:
+        icon: gitea.png
+        description: "Git Repositories"
+        href: http://{{HOMEPAGE_VAR_MEDINA_IP}}:3000
+        server: medina
+        container: app-gitea
+        widget:
+          type: gitea
+          url: http://{{HOMEPAGE_VAR_MEDINA_IP}}:3000
+          key: {{HOMEPAGE_VAR_GITEA}}

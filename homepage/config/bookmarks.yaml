@@ -34,14 +34,18 @@
         - icon: radarr.png
           description: Movies Management
           href: https://radarr.{{HOMEPAGE_VAR_TAILNET}}
+    - Gitea:
+        - icon: gitea.png
+          description: Git Server
+          href: https://gitea.{{HOMEPAGE_VAR_TAILNET}}
     # - Lazylibrarian:
     #     - icon: lazylibrarian.png
     #       description: Audiobook Management
     #       href: https://lazylibrarian.{{HOMEPAGE_VAR_TAILNET}}
-    - FossFLOW:
-        - icon: flowise.png
-          description: System Diagrams
-          href: https://fossflow.{{HOMEPAGE_VAR_TAILNET}}
+    # - FossFLOW:
+    #     - icon: flowise.png
+    #       description: System Diagrams
+    #       href: https://fossflow.{{HOMEPAGE_VAR_TAILNET}}
     # - Bazarr:
     #     - icon: bazarr.png
     #       description: Subtitles Management
